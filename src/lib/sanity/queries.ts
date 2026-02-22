@@ -1,0 +1,37 @@
+export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]`;
+
+export const SERVICES_QUERY = `*[_type == "service"] | order(order asc) {
+  _id, title, slug, shortDescription, icon, image, order, features
+}`;
+
+export const FEATURED_PROJECTS_QUERY = `*[_type == "project" && featured == true] | order(order asc) {
+  _id, title, slug, description, image,
+  industry->{ title },
+  technologies
+}`;
+
+export const ALL_PROJECTS_QUERY = `*[_type == "project"] | order(order asc) {
+  _id, title, slug, description, image,
+  industry->{ title },
+  technologies
+}`;
+
+export const INDUSTRIES_QUERY = `*[_type == "industry"] | order(order asc) {
+  _id, title, slug, description, icon
+}`;
+
+export const TEAM_MEMBERS_QUERY = `*[_type == "teamMember"] | order(order asc) {
+  _id, name, slug, role, shortBio, photo, email,
+  socialLinks, yearsExperience, specializations
+}`;
+
+export const TEAM_MEMBER_QUERY = `*[_type == "teamMember" && slug.current == $slug][0] {
+  _id, name, role, bio, shortBio, photo, email,
+  socialLinks, yearsExperience, specializations
+}`;
+
+export const HERO_QUERY = `*[_type == "heroSection" && page == $page][0] {
+  heading, subheading, backgroundImage, ctaButtons
+}`;
+
+export const CONTACT_INFO_QUERY = `*[_type == "contactInfo"][0]`;

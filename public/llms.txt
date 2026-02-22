@@ -1,0 +1,27 @@
+# BrainySoftware
+
+> Custom software development company based in Tallinn, Estonia with 15+ years of experience.
+
+BrainySoftware is an IT company specializing in custom software development, low-code solutions, and product design. We serve enterprises, SMEs, and technology companies across fintech, telecom, banking, healthcare, insurance, and retail industries.
+
+## Services
+
+- [Web Development](https://brainysoft.biz/services): Custom web application development with modern technologies
+- [Mobile Development](https://brainysoft.biz/services): Native and cross-platform mobile app development
+- [QA & Testing](https://brainysoft.biz/services): Comprehensive multi-stage testing and software auditing
+- [IT Consultancy](https://brainysoft.biz/services): Technology strategy, workflow optimization, app portfolio consolidation
+- [UI/UX Design](https://brainysoft.biz/services): User-centered design process for digital products
+- [Dedicated Team](https://brainysoft.biz/services): Skilled professional teams for long-term projects
+
+## Company
+
+- [About Us](https://brainysoft.biz/company/why-choose-us): Why choose BrainySoftware as your software development partner
+- [Our Team](https://brainysoft.biz/company/team): Meet our leadership team
+- [Contact](https://brainysoft.biz/contacts): Get in touch with us
+
+## Contact
+
+- Email: info@brainysoft.biz
+- Phone: +372 699 14 26
+- Address: Roseni tn 13, 10111 Tallinn, Estonia
+- Hours: Monday-Saturday, 10:00-17:00
