@@ -1,6 +1,22 @@
 import { Button } from "@/components/ui/Button";
+import type { SanityHeroSection } from "@/lib/sanity/types";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  data?: SanityHeroSection | null;
+}
+
+export function HeroSection({ data }: HeroSectionProps) {
+  const heading = data?.heading ?? "We Build Software\nThat Runs Business";
+  const subheading =
+    data?.subheading ??
+    "BrainySoftware is a custom software development company based in Tallinn, Estonia. For over 15 years we deliver scalable solutions for fintech, banking, telecom, healthcare, and insurance sectors.";
+  const buttons = data?.ctaButtons ?? [
+    { label: "Our Services", href: "/services", variant: "primary" as const },
+    { label: "Contact Us", href: "/contacts", variant: "outline" as const },
+  ];
+
+  const headingLines = heading.split("\n");
+
   return (
     <section className="relative flex min-h-[90vh] items-center bg-brand-dark overflow-hidden">
       {/* Subtle grid pattern */}
@@ -13,24 +29,30 @@ export function HeroSection() {
         <div className="max-w-3xl">
           <div className="mb-6 h-px w-12 bg-brand-green" />
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-brand-green">
-            Custom Software Development
+            Software Development &middot; Est. 2009
           </p>
           <h1 className="text-4xl font-medium leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-            We Can Transform
-            <br />
-            Every Digital Process
+            {headingLines.map((line, i) => (
+              <span key={i}>
+                {i > 0 && <br />}
+                {line}
+              </span>
+            ))}
           </h1>
           <p className="mt-8 max-w-xl text-sm leading-relaxed text-gray-500">
-            We transform businesses of most major sectors with powerful and
-            adaptable digital solutions that satisfy the needs of today.
+            {subheading}
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
-            <Button href="/services" size="lg">
-              Our Services
-            </Button>
-            <Button href="/contacts" variant="outline" size="lg">
-              Contact Us
-            </Button>
+            {buttons.map((btn) => (
+              <Button
+                key={btn.href}
+                href={btn.href}
+                variant={btn.variant === "primary" ? "primary" : "outline"}
+                size="lg"
+              >
+                {btn.label}
+              </Button>
+            ))}
           </div>
         </div>
       </div>

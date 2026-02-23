@@ -20,6 +20,21 @@ export default defineType({
       of: [{ type: "block" }],
     }),
     defineField({ name: "icon", type: "image", title: "Icon" }),
+    defineField({
+      name: "iconName",
+      type: "string",
+      title: "Icon Name (SVG lookup)",
+      options: {
+        list: [
+          { title: "Globe", value: "globe" },
+          { title: "Smartphone", value: "smartphone" },
+          { title: "Check Circle", value: "check-circle" },
+          { title: "Lightbulb", value: "lightbulb" },
+          { title: "Palette", value: "palette" },
+          { title: "Users", value: "users" },
+        ],
+      },
+    }),
     defineField({ name: "image", type: "image", title: "Feature Image" }),
     defineField({ name: "order", type: "number", title: "Display Order" }),
     defineField({

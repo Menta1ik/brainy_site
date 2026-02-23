@@ -14,6 +14,21 @@ export default defineType({
     }),
     defineField({ name: "description", type: "text", title: "Description" }),
     defineField({ name: "icon", type: "image", title: "Icon" }),
+    defineField({
+      name: "iconName",
+      type: "string",
+      title: "Icon Name (SVG lookup)",
+      options: {
+        list: [
+          { title: "Trending Up", value: "trending-up" },
+          { title: "Radio", value: "radio" },
+          { title: "Building", value: "building" },
+          { title: "Heart", value: "heart" },
+          { title: "Shield", value: "shield" },
+          { title: "Shopping Cart", value: "shopping-cart" },
+        ],
+      },
+    }),
     defineField({ name: "order", type: "number", title: "Display Order" }),
   ],
 });

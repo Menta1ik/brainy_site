@@ -37,39 +37,39 @@ export const NAV_ITEMS = [
 
 export const SERVICES = [
   {
-    title: "Web Development",
+    title: "Low-code Development",
     description:
-      "We carry more than just good coding skills. Our experience makes us stand out from other web development companies.",
+      "Accelerate application delivery with low-code platforms. We reduce development complexity so companies of any size can increase productivity and speed to market.",
     icon: "globe",
   },
   {
-    title: "Mobile Development",
+    title: "Custom Software",
     description:
-      "Create complex enterprise software, ensure reliable software integration, modernise your legacy system.",
+      "End-to-end development of scalable, enterprise-grade software solutions. From architecture design to deployment and long-term support.",
     icon: "smartphone",
   },
   {
     title: "QA & Testing",
     description:
-      "Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software.",
+      "Comprehensive multi-stage testing, automated test pipelines, and independent software auditing to ensure reliability before every release.",
     icon: "check-circle",
   },
   {
     title: "IT Consultancy",
     description:
-      "Trust our top minds to eliminate workflow pain points, implement new tech, and consolidate app portfolios.",
+      "Technology strategy, workflow optimization, and digital transformation consulting. We help you modernize infrastructure and consolidate application portfolios.",
     icon: "lightbulb",
   },
   {
-    title: "UI/UX Design",
+    title: "Product Design",
     description:
-      "Build the product you need on time with an experienced team that uses a clear and effective design process.",
+      "User-centered UI/UX design backed by research and usability testing. We create intuitive interfaces that drive engagement and conversion.",
     icon: "palette",
   },
   {
-    title: "Dedicated Team",
+    title: "Dedicated Teams",
     description:
-      "Over the past decade, our customers succeeded by leveraging our process of building and motivating skilled professionals.",
+      "Build your remote development team tailored to your project requirements. Skilled professionals managed and motivated by our proven processes.",
     icon: "users",
   },
 ] as const;
@@ -80,5 +80,5 @@ export const INDUSTRIES = [
   { title: "Banking", icon: "building" },
   { title: "Healthcare", icon: "heart" },
   { title: "Insurance", icon: "shield" },
-  { title: "Retail", icon: "shopping-cart" },
+  { title: "Retail & E-commerce", icon: "shopping-cart" },
 ] as const;

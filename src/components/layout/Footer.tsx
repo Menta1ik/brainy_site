@@ -1,14 +1,30 @@
 import Link from "next/link";
+import Image from "next/image";
 import { SITE_CONFIG, SERVICES } from "@/lib/constants";
 
-export function Footer() {
+interface FooterProps {
+  logoUrl?: string | null;
+}
+
+export function Footer({ logoUrl }: FooterProps) {
   return (
     <footer className="border-t border-brand-border bg-brand-dark">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <Link href="/" className="text-lg font-medium tracking-wider text-white">
-              BRAINY<span className="text-brand-green">SOFT</span>
+            <Link href="/" className="inline-flex items-center gap-2">
+              {logoUrl && (
+                <Image
+                  src={logoUrl}
+                  alt="BrainySoftware"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto"
+                />
+              )}
+              <span className="text-lg font-medium tracking-wider text-white">
+                BRAINY<span className="text-brand-green">SOFT</span>
+              </span>
             </Link>
             <p className="mt-4 text-xs leading-relaxed text-gray-600">
               Over 15 years helping companies reach their goals with innovative

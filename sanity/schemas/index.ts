@@ -5,6 +5,7 @@ import teamMember from "./teamMember";
 import industry from "./industry";
 import heroSection from "./heroSection";
 import contactInfo from "./contactInfo";
+import aboutSection from "./aboutSection";
 
 export const schemaTypes = [
   siteSettings,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   industry,
   heroSection,
   contactInfo,
+  aboutSection,
 ];

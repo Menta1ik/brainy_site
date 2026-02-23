@@ -1,39 +1,47 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import type { SanityAboutSection } from "@/lib/sanity/types";
 
-const stats = [
-  { value: "15+", label: "Years" },
-  { value: "100+", label: "Projects" },
-  { value: "6+", label: "Industries" },
+const defaultStats = [
+  { value: "15+", label: "Years in Business" },
+  { value: "100+", label: "Projects Delivered" },
+  { value: "50+", label: "Enterprise Clients" },
 ];
 
-export function AboutSection() {
+const defaultParagraphs = [
+  "BrainySoftware is the partner of choice for leading enterprises, SMEs, and technology challengers. We help businesses elevate their value through custom software development, low-code platforms, product design, QA, and consultancy services.",
+  "Based in Tallinn, Estonia, we maintain and modernize IT infrastructure, automate business processes, and build reliable software solutions for fintech, banking, telecom, healthcare, insurance, and retail industries.",
+];
+
+interface AboutSectionProps {
+  data?: SanityAboutSection | null;
+}
+
+export function AboutSection({ data }: AboutSectionProps) {
+  const title = data?.title ?? "About BrainySoftware";
+  const subtitle = data?.subtitle ?? "Your trusted technology partner since 2009";
+  const paragraphs = data?.paragraphs?.length ? data.paragraphs : defaultParagraphs;
+  const statsData = data?.stats?.length ? data.stats : defaultStats;
+
   return (
     <section className="py-24 lg:py-32 bg-brand-dark" aria-labelledby="about-heading">
       <Container>
         <div className="grid items-center gap-16 lg:grid-cols-2">
           <div>
             <SectionHeading
-              title="About BrainySoftware"
-              subtitle="Your trusted technology partner since 2009"
+              title={title}
+              subtitle={subtitle}
               align="left"
             />
-            <p className="text-sm leading-relaxed text-gray-500">
-              With over 15 years of experience in the IT industry, BrainySoftware
-              has established itself as a trusted partner for enterprises and
-              startups alike. Based in Tallinn, Estonia, we specialize in
-              developing cutting-edge solutions for fintech, telecom, banking,
-              healthcare, insurance, and retail industries.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-gray-500">
-              Our team of skilled professionals combines technical expertise with
-              deep industry knowledge to deliver solutions that drive real
-              business results.
-            </p>
+            {paragraphs.map((p, i) => (
+              <p key={i} className={`${i > 0 ? "mt-4 " : ""}text-sm leading-relaxed text-gray-500`}>
+                {p}
+              </p>
+            ))}
           </div>
 
           <div className="grid grid-cols-3 gap-px bg-brand-border">
-            {stats.map((stat) => (
+            {statsData.map((stat) => (
               <div
                 key={stat.label}
                 className="bg-brand-gray p-8 text-center"

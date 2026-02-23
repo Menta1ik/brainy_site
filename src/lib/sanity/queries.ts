@@ -1,7 +1,7 @@
 export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]`;
 
 export const SERVICES_QUERY = `*[_type == "service"] | order(order asc) {
-  _id, title, slug, shortDescription, icon, image, order, features
+  _id, title, slug, shortDescription, icon, iconName, image, order, features
 }`;
 
 export const FEATURED_PROJECTS_QUERY = `*[_type == "project" && featured == true] | order(order asc) {
@@ -17,7 +17,11 @@ export const ALL_PROJECTS_QUERY = `*[_type == "project"] | order(order asc) {
 }`;
 
 export const INDUSTRIES_QUERY = `*[_type == "industry"] | order(order asc) {
-  _id, title, slug, description, icon
+  _id, title, slug, description, icon, iconName
+}`;
+
+export const ABOUT_SECTION_QUERY = `*[_type == "aboutSection"][0] {
+  title, subtitle, paragraphs, stats
 }`;
 
 export const TEAM_MEMBERS_QUERY = `*[_type == "teamMember"] | order(order asc) {

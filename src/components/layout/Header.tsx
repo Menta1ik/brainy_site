@@ -2,13 +2,18 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { MobileMenu } from "./MobileMenu";
 
-export function Header() {
+interface HeaderProps {
+  logoUrl?: string | null;
+}
+
+export function Header({ logoUrl }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -33,8 +38,20 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <Link href="/" className="text-lg font-medium tracking-wider text-white">
-          BRAINY<span className="text-brand-green">SOFT</span>
+        <Link href="/" className="flex items-center gap-2">
+          {logoUrl && (
+            <Image
+              src={logoUrl}
+              alt="BrainySoftware"
+              width={32}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
+          )}
+          <span className="text-lg font-medium tracking-wider text-white">
+            BRAINY<span className="text-brand-green">SOFT</span>
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
@@ -104,7 +121,7 @@ export function Header() {
         </div>
       </div>
 
-      <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
+      <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} logoUrl={logoUrl} />
     </header>
   );
 }

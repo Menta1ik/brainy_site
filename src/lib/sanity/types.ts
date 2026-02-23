@@ -8,6 +8,7 @@ export interface SanityService {
   slug: { current: string };
   shortDescription: string;
   icon?: SanityImageSource;
+  iconName?: string;
   image?: SanityImageSource;
   order: number;
   features?: string[];
@@ -47,6 +48,14 @@ export interface SanityIndustry {
   slug: { current: string };
   description?: string;
   icon?: SanityImageSource;
+  iconName?: string;
+}
+
+export interface SanityAboutSection {
+  title: string;
+  subtitle?: string;
+  paragraphs?: string[];
+  stats?: { value: string; label: string }[];
 }
 
 export interface SanityHeroSection {

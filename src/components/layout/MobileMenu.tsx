@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -9,9 +10,10 @@ import { cn } from "@/lib/utils";
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  logoUrl?: string | null;
 }
 
-export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
   const pathname = usePathname();
   const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
@@ -23,9 +25,20 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
       <div className="fixed inset-y-0 right-0 w-full max-w-sm border-l border-brand-border bg-brand-dark">
         <div className="flex items-center justify-between p-6 border-b border-brand-border">
-          <span className="text-lg font-medium tracking-wider text-white">
-            BRAINY<span className="text-brand-green">SOFT</span>
-          </span>
+          <div className="flex items-center gap-2">
+            {logoUrl && (
+              <Image
+                src={logoUrl}
+                alt="BrainySoftware"
+                width={28}
+                height={28}
+                className="h-7 w-auto"
+              />
+            )}
+            <span className="text-lg font-medium tracking-wider text-white">
+              BRAINY<span className="text-brand-green">SOFT</span>
+            </span>
+          </div>
           <button onClick={onClose} className="p-2 text-gray-400" aria-label="Close menu">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />

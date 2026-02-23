@@ -3,6 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { SITE_CONFIG } from "@/lib/constants";
+import { getContactInfo } from "@/lib/sanity/fetchers";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -11,30 +12,23 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contacts" },
 };
 
-const contactDetails = [
-  {
-    label: "Email",
-    value: SITE_CONFIG.email,
-    href: `mailto:${SITE_CONFIG.email}`,
-  },
-  {
-    label: "Phone",
-    value: SITE_CONFIG.phone,
-    href: `tel:${SITE_CONFIG.phone}`,
-  },
-  {
-    label: "Address",
-    value: `${SITE_CONFIG.address.street}, ${SITE_CONFIG.address.city}, ${SITE_CONFIG.address.postalCode}`,
-    href: undefined,
-  },
-  {
-    label: "Hours",
-    value: SITE_CONFIG.workingHours,
-    href: undefined,
-  },
-];
+export default async function ContactsPage() {
+  const contactInfo = await getContactInfo();
 
-export default function ContactsPage() {
+  const email = contactInfo?.email ?? SITE_CONFIG.email;
+  const phone = contactInfo?.phone ?? SITE_CONFIG.phone;
+  const address =
+    contactInfo?.address ??
+    `${SITE_CONFIG.address.street}, ${SITE_CONFIG.address.city}, ${SITE_CONFIG.address.postalCode}`;
+  const hours = contactInfo?.workingHours ?? SITE_CONFIG.workingHours;
+
+  const contactDetails = [
+    { label: "Email", value: email, href: `mailto:${email}` },
+    { label: "Phone", value: phone, href: `tel:${phone}` },
+    { label: "Address", value: address, href: undefined },
+    { label: "Hours", value: hours, href: undefined },
+  ];
+
   return (
     <>
       <PageHero

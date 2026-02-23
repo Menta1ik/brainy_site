@@ -4,6 +4,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_CONFIG } from "@/lib/constants";
+import { getLogoUrl } from "@/lib/sanity/fetchers";
 import "./globals.css";
 
 const jetbrainsMono = JetBrains_Mono({
@@ -99,18 +100,20 @@ const organizationJsonLd = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const logoUrl = await getLogoUrl();
+
   return (
     <html lang="en">
       <body className={`${jetbrainsMono.variable} ${jetbrainsMono.className} antialiased`}>
         <JsonLd data={organizationJsonLd} />
-        <Header />
+        <Header logoUrl={logoUrl} />
         <main className="min-h-screen pt-[72px]">{children}</main>
-        <Footer />
+        <Footer logoUrl={logoUrl} />
       </body>
     </html>
   );
