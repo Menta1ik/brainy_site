@@ -19,6 +19,7 @@ export default defineType({
         ],
       },
     }),
+    defineField({ name: "tagline", type: "string", title: "Tagline (small text above heading)" }),
     defineField({ name: "heading", type: "string", title: "Heading" }),
     defineField({ name: "subheading", type: "text", title: "Subheading" }),
     defineField({ name: "backgroundImage", type: "image", title: "Background Image" }),

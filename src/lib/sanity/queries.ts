@@ -35,7 +35,7 @@ export const TEAM_MEMBER_QUERY = `*[_type == "teamMember" && slug.current == $sl
 }`;
 
 export const HERO_QUERY = `*[_type == "heroSection" && page == $page][0] {
-  heading, subheading, backgroundImage, ctaButtons
+  tagline, heading, subheading, backgroundImage, ctaButtons
 }`;
 
 export const CONTACT_INFO_QUERY = `*[_type == "contactInfo"][0]`;

@@ -59,6 +59,7 @@ export interface SanityAboutSection {
 }
 
 export interface SanityHeroSection {
+  tagline?: string;
   heading: string;
   subheading?: string;
   backgroundImage?: SanityImageSource;

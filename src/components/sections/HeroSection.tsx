@@ -6,6 +6,7 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ data }: HeroSectionProps) {
+  const tagline = data?.tagline ?? "Software Development · Est. 2009";
   const heading = data?.heading ?? "We Build Software\nThat Runs Business";
   const subheading =
     data?.subheading ??
@@ -29,7 +30,7 @@ export function HeroSection({ data }: HeroSectionProps) {
         <div className="max-w-3xl">
           <div className="mb-6 h-px w-12 bg-brand-green" />
           <p className="mb-6 text-xs font-medium uppercase tracking-[0.3em] text-brand-green">
-            Software Development &middot; Est. 2009
+            {tagline}
           </p>
           <h1 className="text-4xl font-medium leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
             {headingLines.map((line, i) => (
