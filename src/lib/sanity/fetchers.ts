@@ -23,7 +23,9 @@ import { SERVICES, INDUSTRIES } from "@/lib/constants";
 
 export async function getServices(): Promise<SanityService[]> {
   try {
-    const data = await client.fetch<SanityService[]>(SERVICES_QUERY);
+    const data = await client.fetch<SanityService[]>(SERVICES_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["service"] },
+    });
     if (data && data.length > 0) return data;
   } catch (e) {
     console.error("Failed to fetch services from Sanity:", e);
@@ -40,7 +42,9 @@ export async function getServices(): Promise<SanityService[]> {
 
 export async function getFeaturedProjects(): Promise<SanityProject[]> {
   try {
-    const data = await client.fetch<SanityProject[]>(FEATURED_PROJECTS_QUERY);
+    const data = await client.fetch<SanityProject[]>(FEATURED_PROJECTS_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["project"] },
+    });
     if (data && data.length > 0) return data;
   } catch (e) {
     console.error("Failed to fetch projects from Sanity:", e);
@@ -57,7 +61,9 @@ export async function getFeaturedProjects(): Promise<SanityProject[]> {
 
 export async function getIndustries(): Promise<SanityIndustry[]> {
   try {
-    const data = await client.fetch<SanityIndustry[]>(INDUSTRIES_QUERY);
+    const data = await client.fetch<SanityIndustry[]>(INDUSTRIES_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["industry"] },
+    });
     if (data && data.length > 0) return data;
   } catch (e) {
     console.error("Failed to fetch industries from Sanity:", e);
@@ -74,7 +80,9 @@ export async function getHeroSection(
   page: string,
 ): Promise<SanityHeroSection | null> {
   try {
-    const data = await client.fetch<SanityHeroSection>(HERO_QUERY, { page });
+    const data = await client.fetch<SanityHeroSection>(HERO_QUERY, { page }, {
+      next: { revalidate: 3600, tags: ["heroSection"] },
+    });
     if (data) return data;
   } catch (e) {
     console.error(`Failed to fetch hero for page ${page}:`, e);
@@ -84,7 +92,9 @@ export async function getHeroSection(
 
 export async function getAboutSection(): Promise<SanityAboutSection | null> {
   try {
-    const data = await client.fetch<SanityAboutSection>(ABOUT_SECTION_QUERY);
+    const data = await client.fetch<SanityAboutSection>(ABOUT_SECTION_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["aboutSection"] },
+    });
     if (data) return data;
   } catch (e) {
     console.error("Failed to fetch about section:", e);
@@ -94,7 +104,9 @@ export async function getAboutSection(): Promise<SanityAboutSection | null> {
 
 export async function getTeamMembers(): Promise<SanityTeamMember[]> {
   try {
-    const data = await client.fetch<SanityTeamMember[]>(TEAM_MEMBERS_QUERY);
+    const data = await client.fetch<SanityTeamMember[]>(TEAM_MEMBERS_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["teamMember"] },
+    });
     if (data && data.length > 0) return data;
   } catch (e) {
     console.error("Failed to fetch team members:", e);
@@ -104,7 +116,9 @@ export async function getTeamMembers(): Promise<SanityTeamMember[]> {
 
 export async function getLogoUrl(): Promise<string | null> {
   try {
-    const data = await client.fetch<SanitySiteSettings>(SITE_SETTINGS_QUERY);
+    const data = await client.fetch<SanitySiteSettings>(SITE_SETTINGS_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["siteSettings"] },
+    });
     if (data?.logo) {
       return urlFor(data.logo).width(200).url();
     }
@@ -121,7 +135,9 @@ export async function getContactInfo(): Promise<{
   workingHours?: string;
 } | null> {
   try {
-    const data = await client.fetch(CONTACT_INFO_QUERY);
+    const data = await client.fetch(CONTACT_INFO_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["contactInfo"] },
+    });
     if (data) return data;
   } catch (e) {
     console.error("Failed to fetch contact info:", e);

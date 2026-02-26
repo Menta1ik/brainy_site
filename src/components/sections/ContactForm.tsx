@@ -25,11 +25,6 @@ export function ContactForm() {
       honeypot: formData.get("honeypot") as string,
     };
 
-    if (data.honeypot) {
-      setStatus("success");
-      return;
-    }
-
     try {
       const response = await fetch("/api/contact", {
         method: "POST",

@@ -1,4 +1,4 @@
-export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]`;
+export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0] { logo }`;
 
 export const SERVICES_QUERY = `*[_type == "service"] | order(order asc) {
   _id, title, slug, shortDescription, icon, iconName, image, order, features

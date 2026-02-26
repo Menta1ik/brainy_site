@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
   },
   alternates: {
-    canonical: "/",
+    canonical: SITE_CONFIG.url,
   },
   robots: {
     index: true,
