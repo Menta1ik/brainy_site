@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -15,7 +14,6 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
   const pathname = usePathname();
-  const [expandedItem, setExpandedItem] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
@@ -49,47 +47,7 @@ export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
         <nav className="px-6" aria-label="Mobile navigation">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="border-b border-brand-border">
-              {"children" in item && item.children ? (
-                <>
-                  <button
-                    onClick={() =>
-                      setExpandedItem(expandedItem === item.label ? null : item.label)
-                    }
-                    className="flex w-full items-center justify-between py-4 text-sm uppercase tracking-wider text-gray-400"
-                  >
-                    {item.label}
-                    <svg
-                      className={cn(
-                        "h-4 w-4 transition-transform",
-                        expandedItem === item.label && "rotate-180"
-                      )}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  {expandedItem === item.label && (
-                    <div className="pb-4 pl-4">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={onClose}
-                          className={cn(
-                            "block py-2 text-sm text-gray-500 hover:text-brand-green",
-                            pathname === child.href && "text-brand-green"
-                          )}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </>
-              ) : (
-                <Link
+              <Link
                   href={item.href}
                   onClick={onClose}
                   className={cn(
@@ -99,7 +57,6 @@ export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
                 >
                   {item.label}
                 </Link>
-              )}
             </div>
           ))}
         </nav>

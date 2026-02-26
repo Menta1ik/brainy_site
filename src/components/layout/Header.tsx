@@ -57,49 +57,15 @@ export function Header({ logoUrl }: HeaderProps) {
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => (
             <div key={item.label} className="relative group">
-              {"children" in item && item.children ? (
-                <>
-                  <button className="flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-gray-400 transition-colors hover:text-white">
-                    {item.label}
-                    <svg
-                      className="h-3 w-3 transition-transform group-hover:rotate-180"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div className="invisible absolute left-0 top-full pt-2 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-                    <div className="min-w-48 border border-brand-border bg-brand-dark p-1">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className={cn(
-                            "block px-4 py-2.5 text-xs uppercase tracking-wider text-gray-400 transition-colors hover:text-brand-green",
-                            pathname === child.href && "text-brand-green"
-                          )}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "text-xs font-medium uppercase tracking-wider transition-colors hover:text-white",
-                    pathname === item.href
-                      ? "text-brand-green"
-                      : "text-gray-400"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              )}
+              <Link
+                href={item.href}
+                className={cn(
+                  "text-xs font-medium uppercase tracking-wider transition-colors hover:text-white",
+                  pathname === item.href ? "text-brand-green" : "text-gray-400"
+                )}
+              >
+                {item.label}
+              </Link>
             </div>
           ))}
         </nav>
