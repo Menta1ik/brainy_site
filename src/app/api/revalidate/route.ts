@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "Bad Request" }, { status: 400 });
     }
 
-    revalidateTag(body._type);
+    revalidateTag(body._type, "max");
 
     return NextResponse.json({ revalidated: true, type: body._type, now: Date.now() });
   } catch (err) {
