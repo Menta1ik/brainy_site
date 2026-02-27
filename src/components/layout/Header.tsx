@@ -61,7 +61,7 @@ export function Header({ logoUrl }: HeaderProps) {
                 href={item.href}
                 className={cn(
                   "text-xs font-medium uppercase tracking-wider transition-colors hover:text-white",
-                  pathname === item.href ? "text-brand-green" : "text-gray-400"
+                  pathname === item.href || pathname.startsWith(item.href + "/") ? "text-brand-green" : "text-gray-400"
                 )}
               >
                 {item.label}

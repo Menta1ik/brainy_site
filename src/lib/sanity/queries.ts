@@ -16,6 +16,12 @@ export const ALL_PROJECTS_QUERY = `*[_type == "project"] | order(order asc) {
   technologies
 }`;
 
+export const PROJECT_BY_SLUG_QUERY = `*[_type == "project" && slug.current == $slug][0] {
+  _id, title, slug, description, image,
+  industry->{ title },
+  technologies, challenge, solution, results
+}`;
+
 export const INDUSTRIES_QUERY = `*[_type == "industry"] | order(order asc) {
   _id, title, slug, description, icon, iconName
 }`;
@@ -39,3 +45,7 @@ export const HERO_QUERY = `*[_type == "heroSection" && page == $page][0] {
 }`;
 
 export const CONTACT_INFO_QUERY = `*[_type == "contactInfo"][0]`;
+
+export const SERVICE_BY_SLUG_QUERY = `*[_type == "service" && slug.current == $slug][0] {
+  _id, title, slug, shortDescription, iconName, image, order, features
+}`;

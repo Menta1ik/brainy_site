@@ -22,6 +22,9 @@ export interface SanityProject {
   image?: SanityImageSource;
   industry?: { title: string };
   technologies?: string[];
+  challenge?: string;
+  solution?: string;
+  results?: string[];
 }
 
 export interface SanityTeamMember {

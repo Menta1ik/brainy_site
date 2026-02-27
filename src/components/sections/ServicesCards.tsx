@@ -5,9 +5,9 @@ import { getServiceCardIcon } from "@/lib/icons";
 import type { SanityService } from "@/lib/sanity/types";
 
 const fallbackServices = [
-  { title: "Low-code Development", shortDescription: "Deliver applications faster with minimal hand-coding. Low-code reduces development complexity, letting companies of any size increase productivity and speed to market.", iconName: "globe" },
-  { title: "Custom Software", shortDescription: "Enterprise-grade software solutions from architecture to deployment. We handle complex integrations, legacy modernization, and scalable system design.", iconName: "smartphone" },
-  { title: "Product Design", shortDescription: "With low-code, we spend more time creating and less on repetitive work. User-centered design backed by research, prototyping, and usability testing.", iconName: "palette" },
+  { title: "Low-code Development", shortDescription: "Deliver applications faster with minimal hand-coding. Low-code reduces development complexity, letting companies of any size increase productivity and speed to market.", iconName: "globe", slug: { current: "low-code-development" } },
+  { title: "Custom Software", shortDescription: "Enterprise-grade software solutions from architecture to deployment. We handle complex integrations, legacy modernization, and scalable system design.", iconName: "smartphone", slug: { current: "custom-software" } },
+  { title: "Product Design", shortDescription: "With low-code, we spend more time creating and less on repetitive work. User-centered design backed by research, prototyping, and usability testing.", iconName: "palette", slug: { current: "product-design" } },
 ];
 
 interface ServicesCardsProps {
@@ -21,6 +21,7 @@ export function ServicesCards({ services }: ServicesCardsProps) {
           title: s.title,
           shortDescription: s.shortDescription,
           iconName: s.iconName,
+          slug: s.slug,
         }))
       : fallbackServices;
 
@@ -38,7 +39,7 @@ export function ServicesCards({ services }: ServicesCardsProps) {
               title={service.title}
               description={service.shortDescription}
               icon={getServiceCardIcon(service.iconName ?? "", "h-6 w-6")}
-              href="/services"
+              href={`/services/${service.slug.current}`}
               className="border-0"
             />
           ))}

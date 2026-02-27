@@ -22,8 +22,10 @@ export const SITE_CONFIG = {
 } as const;
 
 export const NAV_ITEMS = [
-{ label: "Why Choose Us", href: "/company/why-choose-us" },
   { label: "Services", href: "/services" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Our Team", href: "/company/team" },
+  { label: "Why Choose Us", href: "/company/why-choose-us" },
   { label: "Contacts", href: "/contacts" },
 ] as const;
 

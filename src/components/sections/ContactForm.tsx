@@ -22,6 +22,8 @@ export function ContactForm() {
       phone: formData.get("phone") as string,
       subject: formData.get("subject") as string,
       message: formData.get("message") as string,
+      projectType: formData.get("projectType") as string,
+      budgetRange: formData.get("budgetRange") as string,
       honeypot: formData.get("honeypot") as string,
     };
 
@@ -82,6 +84,47 @@ export function ContactForm() {
         <Input label="Phone" name="phone" type="tel" placeholder="+372 ..." error={errors.phone} />
         <Input label="Subject" name="subject" required placeholder="How can we help?" error={errors.subject} />
       </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div>
+          <label className="block text-sm font-medium text-white mb-2">
+            Project Type
+          </label>
+          <select
+            name="projectType"
+            className="w-full bg-brand-gray border border-brand-border text-white px-4 py-2.5 text-sm focus:outline-none focus:border-brand-green transition-colors"
+          >
+            <option value="">Select project type...</option>
+            <option value="web-application">Web Application</option>
+            <option value="mobile-app">Mobile App</option>
+            <option value="desktop-software">Desktop Software</option>
+            <option value="api-backend">API / Backend</option>
+            <option value="low-code">Low-Code Solution</option>
+            <option value="modernization">Legacy Modernization</option>
+            <option value="consultation">Consultation</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-white mb-2">
+            Budget Range
+          </label>
+          <select
+            name="budgetRange"
+            className="w-full bg-brand-gray border border-brand-border text-white px-4 py-2.5 text-sm focus:outline-none focus:border-brand-green transition-colors"
+          >
+            <option value="">Select budget range...</option>
+            <option value="under-50k">Under €50K</option>
+            <option value="50k-100k">€50K - €100K</option>
+            <option value="100k-250k">€100K - €250K</option>
+            <option value="250k-500k">€250K - €500K</option>
+            <option value="500k-plus">€500K+</option>
+            <option value="not-sure">Not sure yet</option>
+          </select>
+        </div>
+      </div>
+
       <Textarea label="Message" name="message" required placeholder="Tell us about your project..." error={errors.message} />
 
       {status === "error" && (

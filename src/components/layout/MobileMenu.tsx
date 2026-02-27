@@ -52,7 +52,7 @@ export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
                   onClick={onClose}
                   className={cn(
                     "block py-4 text-sm uppercase tracking-wider hover:text-brand-green",
-                    pathname === item.href ? "text-brand-green" : "text-gray-400"
+                    pathname === item.href || pathname.startsWith(item.href + "/") ? "text-brand-green" : "text-gray-400"
                   )}
                 >
                   {item.label}

@@ -64,7 +64,7 @@ export function Footer({ logoUrl }: FooterProps) {
               {SERVICES.map((service) => (
                 <li key={service.title}>
                   <Link
-                    href="/services"
+                    href={`/services/${service.title.toLowerCase().replace(/[&]+/g, "").replace(/\s+/g, "-").replace(/-+/g, "-")}`}
                     className="text-xs text-gray-600 transition-colors hover:text-brand-green"
                   >
                     {service.title}
@@ -99,7 +99,6 @@ export function Footer({ logoUrl }: FooterProps) {
                 {SITE_CONFIG.address.street}, {SITE_CONFIG.address.city},{" "}
                 {SITE_CONFIG.address.postalCode}
               </p>
-              <p>{SITE_CONFIG.workingHours}</p>
             </address>
           </div>
         </div>

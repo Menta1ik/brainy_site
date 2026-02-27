@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
@@ -45,9 +46,10 @@ export default async function ServicesPage() {
         <Container>
           <div className="space-y-0 divide-y divide-brand-border border-y border-brand-border">
             {services.map((service, index) => (
-              <div
+              <Link
                 key={service.title}
-                className="group flex flex-col gap-8 py-12 lg:flex-row lg:items-center"
+                href={`/services/${service.slug.current}`}
+                className="group flex flex-col gap-8 py-12 lg:flex-row lg:items-center hover:bg-brand-gray/30 transition-colors px-2 -mx-2"
               >
                 {/* Icon block */}
                 <div className="flex h-20 w-20 shrink-0 items-center justify-center border border-brand-border text-brand-green transition-colors group-hover:border-brand-green/40">
@@ -59,14 +61,24 @@ export default async function ServicesPage() {
                   <span className="text-xs font-medium text-gray-700">
                     0{index + 1}
                   </span>
-                  <h3 className="mt-1 text-lg font-medium text-white">
+                  <h3 className="mt-1 text-lg font-medium text-white group-hover:text-brand-green transition-colors">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-sm text-gray-500 leading-relaxed">
                     {service.shortDescription}
                   </p>
                 </div>
-              </div>
+
+                {/* Arrow */}
+                <svg
+                  className="hidden lg:block h-5 w-5 shrink-0 text-gray-700 group-hover:text-brand-green transition-colors"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
             ))}
           </div>
         </Container>
