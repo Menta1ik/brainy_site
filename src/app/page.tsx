@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { ClientsSection } from "@/components/sections/ClientsSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { ServicesCards } from "@/components/sections/ServicesCards";
 import { ProjectsGallery } from "@/components/sections/ProjectsGallery";
@@ -27,6 +28,7 @@ export default async function HomePage() {
     <>
       <HeroSection data={heroData} />
       <AboutSection data={aboutData} />
+      <ClientsSection />
       <TestimonialsSection />
       <ServicesCards services={services} />
       <ProjectsGallery projects={projects} />

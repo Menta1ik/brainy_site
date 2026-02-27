@@ -1,5 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { RevealSection } from "@/components/ui/RevealSection";
 import { Card } from "@/components/ui/Card";
 import { getServiceCardIcon } from "@/lib/icons";
 import type { SanityService } from "@/lib/sanity/types";
@@ -33,15 +34,16 @@ export function ServicesCards({ services }: ServicesCardsProps) {
           subtitle="Innovative solutions tailored to your business needs"
         />
         <div className="grid gap-px bg-brand-border md:grid-cols-3">
-          {displayServices.map((service) => (
-            <Card
-              key={service.title}
-              title={service.title}
-              description={service.shortDescription}
-              icon={getServiceCardIcon(service.iconName ?? "", "h-6 w-6")}
-              href={`/services/${service.slug.current}`}
-              className="border-0"
-            />
+          {displayServices.map((service, i) => (
+            <RevealSection key={service.title} delay={i * 100}>
+              <Card
+                title={service.title}
+                description={service.shortDescription}
+                icon={getServiceCardIcon(service.iconName ?? "", "h-6 w-6")}
+                href={`/services/${service.slug.current}`}
+                className="h-full border-0"
+              />
+            </RevealSection>
           ))}
         </div>
       </Container>

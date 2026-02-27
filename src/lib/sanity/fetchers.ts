@@ -11,6 +11,8 @@ import {
   TEAM_MEMBERS_QUERY,
   ABOUT_SECTION_QUERY,
   SITE_SETTINGS_QUERY,
+  BLOG_POSTS_QUERY,
+  BLOG_POST_BY_SLUG_QUERY,
 } from "./queries";
 import type {
   SanityService,
@@ -20,6 +22,7 @@ import type {
   SanityTeamMember,
   SanityAboutSection,
   SanitySiteSettings,
+  SanityBlogPost,
 } from "./types";
 import { SERVICES, INDUSTRIES } from "@/lib/constants";
 
@@ -357,6 +360,45 @@ export async function getLogoUrl(): Promise<string | null> {
     console.error("Failed to fetch logo from Sanity:", e);
   }
   return null;
+}
+
+const FALLBACK_BLOG_POSTS: SanityBlogPost[] = [
+  { _id: "bp-1", slug: { current: "microservices-architecture-guide" }, title: "Building Scalable Systems with Microservices Architecture", excerpt: "Learn how to design and implement microservices architecture for enterprise applications. Understand the trade-offs, best practices, and common pitfalls.", category: "Architecture", readingTime: 12, publishedAt: "2026-02-20", featured: true },
+  { _id: "bp-2", slug: { current: "api-design-best-practices" }, title: "RESTful API Design Best Practices", excerpt: "Explore industry best practices for designing robust, scalable REST APIs. From versioning strategies to error handling and documentation.", category: "Development", readingTime: 8, publishedAt: "2026-02-18", featured: true },
+  { _id: "bp-3", slug: { current: "fintech-compliance-guide" }, title: "Compliance Requirements for Fintech Solutions", excerpt: "A comprehensive guide to compliance requirements when building fintech applications. GDPR, PCI-DSS, and regulatory considerations.", category: "Fintech", readingTime: 15, publishedAt: "2026-02-15", featured: true },
+  { _id: "bp-4", slug: { current: "testing-strategies-qa" }, title: "Effective Testing Strategies for Enterprise Applications", excerpt: "Comprehensive overview of testing strategies including unit testing, integration testing, performance testing, and security testing.", category: "QA & Testing", readingTime: 14, publishedAt: "2026-02-12" },
+  { _id: "bp-5", slug: { current: "cloud-migration-strategy" }, title: "Planning Your Cloud Migration Strategy", excerpt: "Step-by-step guide to planning and executing a successful cloud migration. Risk assessment, phasing, and rollback strategies.", category: "Cloud", readingTime: 16, publishedAt: "2026-02-10" },
+  { _id: "bp-6", slug: { current: "low-code-platforms-enterprise" }, title: "Low-Code Platforms: Accelerating Enterprise Development", excerpt: "How low-code platforms are transforming enterprise software development. When to use them and how to maximize their benefits.", category: "Low-Code", readingTime: 10, publishedAt: "2026-02-08" },
+  { _id: "bp-7", slug: { current: "database-performance-optimization" }, title: "Database Performance Optimization Techniques", excerpt: "Advanced techniques for optimizing database performance. Indexing strategies, query optimization, and scaling approaches.", category: "Database", readingTime: 13, publishedAt: "2026-02-05" },
+  { _id: "bp-8", slug: { current: "security-best-practices" }, title: "Security Best Practices for Modern Applications", excerpt: "Essential security practices for building secure applications. Authentication, authorization, encryption, and vulnerability management.", category: "Security", readingTime: 17, publishedAt: "2026-02-01" },
+  { _id: "bp-9", slug: { current: "devops-practices-guide" }, title: "DevOps Best Practices: CI/CD Pipelines", excerpt: "Guide to implementing effective DevOps practices. Continuous integration, continuous deployment, and infrastructure as code.", category: "DevOps", readingTime: 11, publishedAt: "2026-01-28" },
+  { _id: "bp-10", slug: { current: "healthcare-compliance-hipaa" }, title: "HIPAA Compliance for Healthcare IT Solutions", excerpt: "Understanding HIPAA compliance requirements for healthcare applications. Technical implementation and audit considerations.", category: "Healthcare", readingTime: 14, publishedAt: "2026-01-25" },
+  { _id: "bp-11", slug: { current: "agile-team-management" }, title: "Agile Team Management: Scaling Across Multiple Teams", excerpt: "Strategies for managing agile teams at scale. Coordination across multiple teams, dependencies, and maintaining velocity.", category: "Agile", readingTime: 12, publishedAt: "2026-01-20" },
+  { _id: "bp-12", slug: { current: "digital-transformation-guide" }, title: "Guide to Digital Transformation for Enterprises", excerpt: "Comprehensive guide to planning and executing digital transformation initiatives. Technology, people, and process changes.", category: "Strategy", readingTime: 18, publishedAt: "2026-01-15" },
+];
+
+export async function getBlogPosts(): Promise<SanityBlogPost[]> {
+  try {
+    const data = await client.fetch<SanityBlogPost[]>(BLOG_POSTS_QUERY, {}, {
+      next: { revalidate: 3600, tags: ["blogPost"] },
+    });
+    if (data && data.length > 0) return data;
+  } catch (e) {
+    console.error("Failed to fetch blog posts from Sanity:", e);
+  }
+  return FALLBACK_BLOG_POSTS;
+}
+
+export async function getBlogPostBySlug(slug: string): Promise<SanityBlogPost | null> {
+  try {
+    const data = await client.fetch<SanityBlogPost>(BLOG_POST_BY_SLUG_QUERY, { slug }, {
+      next: { revalidate: 3600, tags: ["blogPost"] },
+    });
+    if (data) return data;
+  } catch (e) {
+    console.error("Failed to fetch blog post by slug:", e);
+  }
+  return FALLBACK_BLOG_POSTS.find((p) => p.slug.current === slug) ?? null;
 }
 
 export async function getContactInfo(): Promise<{

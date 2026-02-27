@@ -59,9 +59,9 @@ export default async function TeamPage() {
       />
       <section className="py-24 lg:py-32 bg-brand-dark">
         <Container>
-          <div className="mx-auto max-w-2xl space-y-8">
+          <div className="grid gap-8 md:grid-cols-2">
             {displayMembers.map((member) => (
-              <div key={member.name} className="border border-brand-border">
+              <div key={member.name} className="border border-brand-border flex flex-col">
                 {/* Header */}
                 <div className="border-b border-brand-border bg-brand-gray p-8">
                   <div className="flex items-center gap-6">
@@ -78,7 +78,7 @@ export default async function TeamPage() {
                 </div>
 
                 {/* Body */}
-                <div className="p-8 space-y-6">
+                <div className="flex flex-1 flex-col p-8 space-y-6">
                   {member.specializations.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {member.specializations.map((tag) => (

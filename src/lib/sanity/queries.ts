@@ -49,3 +49,11 @@ export const CONTACT_INFO_QUERY = `*[_type == "contactInfo"][0]`;
 export const SERVICE_BY_SLUG_QUERY = `*[_type == "service" && slug.current == $slug][0] {
   _id, title, slug, shortDescription, iconName, image, order, features
 }`;
+
+export const BLOG_POSTS_QUERY = `*[_type == "blogPost"] | order(publishedAt desc) {
+  _id, title, slug, excerpt, category, readingTime, publishedAt, featured
+}`;
+
+export const BLOG_POST_BY_SLUG_QUERY = `*[_type == "blogPost" && slug.current == $slug][0] {
+  _id, title, slug, excerpt, category, readingTime, publishedAt, featured, body
+}`;

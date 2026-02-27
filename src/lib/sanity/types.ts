@@ -73,6 +73,17 @@ export interface SanityHeroSection {
   }[];
 }
 
+export interface SanityBlogPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt: string;
+  category: string;
+  readingTime?: number;
+  publishedAt: string;
+  featured?: boolean;
+}
+
 export interface SanitySiteSettings {
   title: string;
   description: string;

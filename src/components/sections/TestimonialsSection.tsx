@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { RevealSection } from "@/components/ui/RevealSection";
 
 const testimonials = [
   {
@@ -92,35 +94,47 @@ export function TestimonialsSection() {
           subtitle="Trusted by enterprises across Europe"
         />
 
-        {/* Testimonials grid */}
+        {/* Testimonials grid — first 6 only */}
         <div className="grid gap-px bg-brand-border md:grid-cols-3">
-          {testimonials.map((t, idx) => (
-            <div
-              key={`${t.company}-${idx}`}
-              className="bg-brand-dark p-8 flex flex-col gap-6"
-            >
-              {/* Quote mark */}
-              <svg
-                className="h-6 w-6 text-brand-green shrink-0"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-              </svg>
+          {testimonials.slice(0, 6).map((t, idx) => (
+            <RevealSection key={`${t.company}-${idx}`} delay={idx * 60}>
+              <div className="h-full bg-brand-dark p-8 flex flex-col gap-6">
+                {/* Quote mark */}
+                <svg
+                  className="h-6 w-6 text-brand-green shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+                </svg>
 
-              <p className="text-sm leading-relaxed text-gray-400 flex-1">
-                {t.quote}
-              </p>
+                <p className="text-sm leading-relaxed text-gray-400 flex-1">
+                  {t.quote}
+                </p>
 
-              <div className="border-t border-brand-border pt-5">
-                <div className="text-sm font-medium text-white">{t.author}</div>
-                <div className="mt-0.5 text-xs text-gray-600">{t.company}</div>
-                <div className="mt-2 inline-block px-2 py-0.5 text-xs border border-brand-border text-brand-green">
-                  {t.industry}
+                <div className="border-t border-brand-border pt-5">
+                  <div className="text-sm font-medium text-white">{t.author}</div>
+                  <div className="mt-0.5 text-xs text-gray-600">{t.company}</div>
+                  <div className="mt-2 inline-block px-2 py-0.5 text-xs border border-brand-border text-brand-green">
+                    {t.industry}
+                  </div>
                 </div>
               </div>
-            </div>
+            </RevealSection>
           ))}
+        </div>
+
+        {/* View all link */}
+        <div className="mt-8 text-center">
+          <Link
+            href="/testimonials"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-gray-600 transition-colors hover:text-brand-green"
+          >
+            View All Reviews
+            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </Link>
         </div>
 
         {/* Client logos strip */}
