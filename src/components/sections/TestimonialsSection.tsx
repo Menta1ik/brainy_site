@@ -94,9 +94,9 @@ export function TestimonialsSection() {
 
         {/* Testimonials grid */}
         <div className="grid gap-px bg-brand-border md:grid-cols-3">
-          {testimonials.map((t) => (
+          {testimonials.map((t, idx) => (
             <div
-              key={t.author}
+              key={`${t.company}-${idx}`}
               className="bg-brand-dark p-8 flex flex-col gap-6"
             >
               {/* Quote mark */}
