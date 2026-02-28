@@ -51,3 +51,4 @@ yarn-error.log*
 *.log
 homepage.png
 
+\n# user uploaded screenshots\nuser_uploads/
