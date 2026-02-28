@@ -26,7 +26,7 @@ const client = createClient({
 
 interface Project {
   title: string;
-  slug: string;
+  slug: { _type: string; current: string };
   description: string;
   industry: string;
   technologies: string[];
@@ -136,7 +136,7 @@ async function importProjects() {
         featured: project.featured,
       };
 
-      const created = await client.create(doc) as Project & { _id: string };
+      const created = (await client.create(doc)) as unknown as Project & { _id: string };
       console.log(`✓ Created project: "${created.title}" (${created._id})`);
     }
 

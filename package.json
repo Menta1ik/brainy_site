@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "seed": "npx tsx scripts/seed-sanity.ts",
-    "import:projects": "npx tsx scripts/import-projects.js"
+    "import:projects": "npx tsx scripts/import-projects.ts"
   },
   "dependencies": {
     "@sanity/image-url": "^2.0.3",
