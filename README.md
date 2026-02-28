@@ -16,6 +16,17 @@ Corporate website for [BrainySoftware](https://brainysoft.biz), a custom softwar
 
 ---
 
+## Performance & Standards
+
+Проект оптимизирован согласно строгим правилам производительности и дизайна:
+
+- **GPU Acceleration:** Вместо `transition-all` используются специфичные транзишны (`transition-colors`, `transition-transform`, `transition-opacity`), что исключает лишние пересчеты макета (layout thrashing).
+- **Zero Inline Styles:** Все стили, включая сложные градиенты и анимации, реализованы через Tailwind CSS (utility classes + arbitrary values), что обеспечивает чистоту HTML и предсказуемость каскада.
+- **Image Optimization:** Использование `next/image` для всех визуальных активов гарантирует автоматический ресайз, ленивую загрузку и современные форматы (WebP/Avif).
+- **Blink Animation:** Кастомные анимации (например, курсор в терминале) интегрированы в дизайн-систему через CSS-переменные в `globals.css`.
+
+---
+
 ## Что за что отвечает
 
 ### Контент сайта — где редактировать

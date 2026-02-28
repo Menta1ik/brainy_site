@@ -31,7 +31,7 @@ export function Header({ logoUrl }: HeaderProps) {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        "fixed top-0 left-0 right-0 z-50 transition-colors duration-300 border-b",
         isScrolled
           ? "bg-brand-dark/95 border-brand-border backdrop-blur-md"
           : "bg-transparent border-transparent"

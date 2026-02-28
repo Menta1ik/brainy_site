@@ -6,21 +6,12 @@ export function CTASection() {
     <section className="relative overflow-hidden border-t border-brand-border bg-brand-dark py-24 lg:py-32">
       {/* Dot pattern */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #8cc541 1px, transparent 1px)",
-          backgroundSize: "28px 28px",
-        }}
+        className="pointer-events-none absolute inset-0 opacity-[0.025] [background-image:radial-gradient(circle,#8cc541_1px,transparent_1px)] [background-size:28px_28px]"
       />
 
       {/* Radial green glow — center bottom */}
       <div
-        className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 100%, rgba(140,197,65,0.10) 0%, transparent 60%)",
-        }}
+        className="pointer-events-none absolute bottom-0 left-1/2 h-[400px] w-[700px] -translate-x-1/2 [background:radial-gradient(ellipse_at_50%_100%,rgba(140,197,65,0.10)_0%,transparent_60%)]"
       />
 
       <Container className="relative text-center">

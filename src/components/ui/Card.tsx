@@ -13,7 +13,7 @@ export function Card({ title, description, icon, href, className }: CardProps) {
   const content = (
     <div
       className={cn(
-        "group border border-brand-border bg-brand-gray p-8 transition-all duration-300 hover:border-brand-green/40",
+        "group border border-brand-border bg-brand-gray p-8 transition-colors duration-300 hover:border-brand-green/40",
         className
       )}
     >

@@ -42,10 +42,38 @@ const fallbackProjects = [
   },
   {
     title: "E-commerce Marketplace",
-    category: "Retail",
+    category: "Retail & E-commerce",
     description:
       "Multi-vendor marketplace with inventory management and analytics dashboard.",
     slug: "e-commerce-marketplace",
+  },
+  {
+    title: "In-House Credit Scoring System",
+    category: "Fintech",
+    description:
+      "Advanced credit scoring and decision management system for financial services.",
+    slug: "credit-scoring-system",
+  },
+  {
+    title: "Full Online Lending Automation",
+    category: "Fintech",
+    description:
+      "End-to-end digital lending platform with automated underwriting and origination.",
+    slug: "online-lending-automation",
+  },
+  {
+    title: "Automated Credit Decisioning Platform",
+    category: "Banking",
+    description:
+      "Enterprise credit decisioning system for banking operations.",
+    slug: "automated-credit-decisioning",
+  },
+  {
+    title: "Digital Loan Origination System",
+    category: "Banking",
+    description:
+      "Modern digital loan origination platform for banking services.",
+    slug: "digital-loan-origination",
   },
 ];
 
@@ -80,11 +108,11 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
             <RevealSection key={project.title} delay={index * 60}>
               <Link
                 href={`/portfolio/${project.slug}`}
-                className="group relative flex h-full flex-col bg-brand-gray p-8 transition-all duration-300 hover:bg-brand-dark"
+                className="group relative flex h-full flex-col bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-dark"
               >
                 {/* Number */}
                 <span className="text-xs font-medium text-gray-700">
-                  0{index + 1}
+                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
                 </span>
 
                 {/* Title */}
@@ -104,9 +132,9 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
 
                 {/* CTA row */}
                 <div className="mt-6 flex items-center justify-between">
-                  <div className="h-px w-8 bg-brand-border transition-all duration-300 group-hover:w-12 group-hover:bg-brand-green" />
+                  <div className="h-px w-8 bg-brand-border transition-[width,background-color] duration-300 group-hover:w-12 group-hover:bg-brand-green" />
                   <svg
-                    className="h-4 w-4 text-gray-700 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:text-brand-green"
+                    className="h-4 w-4 text-gray-700 opacity-0 transition-[opacity,color] duration-300 group-hover:opacity-100 group-hover:text-brand-green"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

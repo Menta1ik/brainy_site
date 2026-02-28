@@ -70,7 +70,7 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
         <div className="grid gap-px bg-brand-border sm:grid-cols-2 lg:grid-cols-3">
           {displayIndustries.map((industry, i) => (
             <RevealSection key={industry.title} delay={i * 80}>
-              <div className="group h-full bg-brand-gray p-8 transition-all duration-300 hover:bg-brand-border/30">
+              <div className="group h-full bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-border/30">
                 {/* Number tag */}
                 <span className="text-xs font-medium text-gray-700">
                   {industry.tag}
@@ -83,7 +83,7 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
                   </h3>
                   {/* Arrow indicator */}
                   <svg
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-700 opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:text-brand-green"
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-700 opacity-0 transition-[opacity,color] duration-300 group-hover:opacity-100 group-hover:text-brand-green"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -102,7 +102,7 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
                 </p>
 
                 {/* Bottom accent line */}
-                <div className="mt-6 h-px w-8 bg-brand-border transition-all duration-300 group-hover:w-12 group-hover:bg-brand-green" />
+                <div className="mt-6 h-px w-8 bg-brand-border transition-[width,background-color] duration-300 group-hover:w-12 group-hover:bg-brand-green" />
               </div>
             </RevealSection>
           ))}

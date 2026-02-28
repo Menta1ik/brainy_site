@@ -29,7 +29,7 @@ export default async function PortfolioPage() {
               <Link
                 key={project._id}
                 href={`/portfolio/${project.slug.current}`}
-                className="group relative bg-brand-gray p-8 transition-all duration-300 hover:bg-brand-border/50"
+                className="group relative bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-border/50"
               >
                 <span className="text-xs text-gray-700 font-medium">
                   0{index + 1}
@@ -57,7 +57,7 @@ export default async function PortfolioPage() {
                     ))}
                   </div>
                 )}
-                <div className="mt-6 h-px w-8 bg-brand-border transition-all duration-300 group-hover:w-12 group-hover:bg-brand-green" />
+                <div className="mt-6 h-px w-8 bg-brand-border transition-[width,background-color] duration-300 group-hover:w-12 group-hover:bg-brand-green" />
               </Link>
             ))}
           </div>

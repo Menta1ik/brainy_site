@@ -14,11 +14,7 @@ export function HeroVisual() {
     <div className="relative w-full">
       {/* Green radial glow behind terminal */}
       <div
-        className="pointer-events-none absolute inset-0 -inset-x-8"
-        style={{
-          background:
-            "radial-gradient(60% 60% at 50% 50%, rgba(140,197,65,0.10) 0%, transparent 100%)",
-        }}
+        className="pointer-events-none absolute inset-0 -inset-x-8 [background:radial-gradient(60%_60%_at_50%_50%,rgba(140,197,65,0.10)_0%,transparent_100%)]"
       />
 
       {/* Terminal window */}
@@ -51,7 +47,7 @@ export function HeroVisual() {
           <p className="mt-5 text-xs">
             <span className="text-gray-600">Status: </span>
             <span className="text-brand-green">ready_for_deployment</span>
-            <span className="text-brand-green" style={{ animation: "blink 1s step-end infinite" }}>
+            <span className="text-brand-green animate-blink">
               █
             </span>
           </p>

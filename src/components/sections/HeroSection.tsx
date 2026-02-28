@@ -23,21 +23,12 @@ export function HeroSection({ data }: HeroSectionProps) {
     <section className="relative min-h-[90vh] flex items-center bg-brand-dark overflow-hidden">
       {/* Subtle grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.025]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#8cc541 1px, transparent 1px), linear-gradient(90deg, #8cc541 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
+        className="absolute inset-0 opacity-[0.025] [background-image:linear-gradient(#8cc541_1px,transparent_1px),linear-gradient(90deg,#8cc541_1px,transparent_1px)] [background-size:60px_60px]"
       />
 
       {/* Accent glow — left side */}
       <div
-        className="pointer-events-none absolute -left-64 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(140,197,65,0.05) 0%, transparent 70%)",
-        }}
+        className="pointer-events-none absolute -left-64 top-1/2 h-[600px] w-[600px] -translate-y-1/2 rounded-full [background:radial-gradient(circle,rgba(140,197,65,0.05)_0%,transparent_70%)]"
       />
 
       <div className="relative mx-auto w-full max-w-7xl px-6 py-24 lg:px-8 lg:py-32">

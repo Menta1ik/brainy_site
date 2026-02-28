@@ -46,7 +46,7 @@ export default async function BlogPage() {
               <Link
                 key={post._id}
                 href={`/blog/${post.slug.current}`}
-                className="group bg-brand-gray border border-brand-border hover:border-brand-green transition-all"
+                className="group bg-brand-gray border border-brand-border hover:border-brand-green transition-colors"
               >
                 <div className="p-8 flex flex-col h-full">
                   <div className="mb-4">
@@ -107,7 +107,7 @@ export default async function BlogPage() {
               <Link
                 key={post._id}
                 href={`/blog/${post.slug.current}`}
-                className="group bg-brand-dark border border-brand-border hover:border-brand-green transition-all p-6 flex items-start justify-between"
+                className="group bg-brand-dark border border-brand-border hover:border-brand-green transition-colors p-6 flex items-start justify-between"
               >
                 <div className="flex-1">
                   <div className="mb-3 flex items-center gap-3">

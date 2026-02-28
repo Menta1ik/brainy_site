@@ -232,7 +232,7 @@ export default function FAQPage() {
             </p>
             <a
               href="/contacts"
-              className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-all duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-8 py-3 text-sm"
+              className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-colors duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-8 py-3 text-sm"
             >
               Contact Us
             </a>

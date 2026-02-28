@@ -134,7 +134,7 @@ export default async function CaseStudiesPage() {
                     {/* View Details Link */}
                     <Link
                       href={`/portfolio/${project.slug.current}`}
-                      className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-all duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-6 py-2.5 text-xs w-full"
+                      className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-colors duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-6 py-2.5 text-xs w-full"
                     >
                       View Full Project
                     </Link>
@@ -158,7 +158,7 @@ export default async function CaseStudiesPage() {
             </p>
             <a
               href="/contacts"
-              className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-all duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-8 py-3 text-sm"
+              className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-colors duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-8 py-3 text-sm"
             >
               Get Started
             </a>
