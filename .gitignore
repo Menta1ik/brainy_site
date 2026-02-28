@@ -36,6 +36,18 @@ yarn-error.log*
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
-next-env.d.ts
+# agents & tools
+.playwright-mcp/
+.claude/settings.local.json
+.gemini/settings.local.json
+.gemini/logs/
+.claude/logs/
+.playwright-mcp/console-*.log
+.playwright-mcp/page-*.png
+
+# misc
+.DS_Store
+*.pem
+*.log
+homepage.png
+
