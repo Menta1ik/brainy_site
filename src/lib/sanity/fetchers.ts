@@ -342,9 +342,7 @@ export async function getHeroSection(
     const data = await client.fetch<SanityHeroSection>(HERO_QUERY, { page }, {
       next: { revalidate: 3600, tags: ["heroSection"] },
     });
-    // Ignore stale Sanity content with outdated headings
-    const staleHeadings = ["We can transform every digital process"];
-    if (data && !staleHeadings.includes(data.heading)) return data;
+    if (data) return data;
   } catch (e) {
     console.error(`Failed to fetch hero for page ${page}:`, e);
   }
