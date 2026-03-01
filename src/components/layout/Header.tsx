@@ -25,6 +25,8 @@ export function Header({ logoUrl }: HeaderProps) {
   }, []);
 
   useEffect(() => {
+    // Close mobile menu on navigation
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMobileOpen(false);
   }, [pathname]);
 

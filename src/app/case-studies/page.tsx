@@ -151,7 +151,7 @@ export default async function CaseStudiesPage() {
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-sm text-gray-500 mb-4">READY TO START YOUR PROJECT?</p>
             <h2 className="text-2xl font-medium text-white mb-4">
-              Let's discuss how we can help
+              Let&apos;s discuss how we can help
             </h2>
             <p className="text-gray-400 mb-8">
               Our team is ready to turn your vision into reality. Contact us to schedule a consultation.

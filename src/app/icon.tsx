@@ -44,7 +44,7 @@ export default async function Icon() {
           justifyContent: "center",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+
         <img src={logoUrl} width={32} height={32} style={{ objectFit: "contain" }} alt="favicon" />
       </div>
     ),

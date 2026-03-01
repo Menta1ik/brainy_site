@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = {
   title: "FAQ | BrainySoftware",
@@ -223,7 +222,7 @@ export default function FAQPage() {
       <section className="py-16 lg:py-20 bg-brand-gray border-y border-brand-border">
         <Container>
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-sm text-gray-500 mb-4">DIDN'T FIND YOUR ANSWER?</p>
+            <p className="text-sm text-gray-500 mb-4">DIDN&apos;T FIND YOUR ANSWER?</p>
             <h2 className="text-2xl font-medium text-white mb-4">
               Get in touch with our team
             </h2>

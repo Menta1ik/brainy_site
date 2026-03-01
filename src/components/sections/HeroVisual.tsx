@@ -1,7 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 
 export function HeroVisual() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

@@ -102,7 +102,7 @@ export default function HowWeWorkPage() {
       <section className="py-24 lg:py-32 bg-brand-dark">
         <Container>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {processSteps.map((step, index) => (
+            {processSteps.map((step) => (
               <div
                 key={step.number}
                 className="bg-brand-gray p-8 border border-brand-border hover:border-brand-green transition-colors"
@@ -154,7 +154,7 @@ export default function HowWeWorkPage() {
                 Why Our Process Works
               </h2>
               <p className="text-gray-400">
-                We've refined our development process over 15+ years working with
+                We&apos;ve refined our development process over 15+ years working with
                 enterprises across fintech, banking, telecom, healthcare, and insurance.
                 Our methodology ensures quality, transparency, and on-time delivery.
               </p>
