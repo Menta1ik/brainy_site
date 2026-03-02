@@ -376,17 +376,6 @@ export async function getHeroSection(
   } catch (e) {
     console.error(`Failed to fetch hero for page ${page}:`, e);
   }
-  if (page === "home") {
-    return {
-      tagline: "LOW-CODE • HIGH-LEVEL DIGITAL PRODUCTS • ACROSS INDUSTRIES",
-      heading: "We build high-level digital products on our NextGen low-code platform",
-      subheading: "BrainySoftware designs and delivers advanced applications on our own NextGen low-code platform — from marketplaces, education and legal solutions to healthcare, veterinary, government, municipal and financial systems.",
-      ctaButtons: [
-        { label: "Our Services", href: "/services", variant: "primary" },
-        { label: "Contact Us", href: "/contacts", variant: "outline" },
-      ]
-    };
-  }
   return null;
 }
 

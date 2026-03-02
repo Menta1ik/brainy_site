@@ -8,24 +8,22 @@ interface HeroSectionProps {
 
 export function HeroSection({ data }: HeroSectionProps) {
   const tagline = data?.tagline ?? "LOW-CODE • HIGH-LEVEL DIGITAL PRODUCTS";
-  const heading = data?.heading ?? "We build high-level digital products on our NextGen low-code platform";
+  const heading = data?.heading ?? "We build high-level digital products\non our NextGen low-code platform";
   const subheading =
     data?.subheading ??
-    "BrainySoftware designs and delivers advanced applications on our own NextGen low-code platform — faster delivery and lower risk than traditional development.";
+    "BrainySoftware designs and delivers advanced applications on our own NextGen low-code platform.";
   const buttons = data?.ctaButtons ?? [
     { label: "Our Services", href: "/services", variant: "primary" as const },
     { label: "Contact Us", href: "/contacts", variant: "outline" as const },
   ];
 
-  // Logic to highlight "NextGen low-code platform"
-  const highlightText = "NextGen low-code platform";
-  const parts = heading.split(highlightText);
+  // Split heading by newline if present to maintain 2-line layout control
+  const headingLines = heading.split('\n');
+  const highlightText = "NextGen low-code";
 
   return (
     <section className="relative min-h-[95vh] flex items-center justify-center bg-brand-dark overflow-hidden">
-      {/* ── Tech Background ── */}
-      
-      {/* 1. Base Grid (Static) */}
+      {/* ... (background effects unchanged) ... */}
       <div 
         className="absolute inset-0 opacity-20"
         style={{
@@ -36,21 +34,15 @@ export function HeroSection({ data }: HeroSectionProps) {
           backgroundSize: '40px 40px'
         }}
       />
-
-      {/* 2. Moving Data Streams (Vertical) */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute left-[10%] top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-brand-green to-transparent animate-[float_3s_ease-in-out_infinite]" />
         <div className="absolute left-[30%] top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-brand-blue to-transparent animate-[float_5s_ease-in-out_infinite_1s]" />
         <div className="absolute right-[20%] top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-brand-green to-transparent animate-[float_4s_ease-in-out_infinite_0.5s]" />
         <div className="absolute right-[40%] top-0 h-full w-[1px] bg-gradient-to-b from-transparent via-brand-blue to-transparent animate-[float_6s_ease-in-out_infinite_2s]" />
       </div>
-
-      {/* 3. Horizontal Scanner Beam */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-brand-green/50 to-transparent animate-scan opacity-20" />
       </div>
-
-      {/* 4. Central Glow (Depth) */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="h-[600px] w-[600px] rounded-full bg-brand-green/5 blur-[100px]" />
       </div>
@@ -66,12 +58,26 @@ export function HeroSection({ data }: HeroSectionProps) {
 
         {/* Heading */}
         <h1 className="mx-auto max-w-7xl text-3xl font-medium leading-[1.1] tracking-normal text-white sm:text-4xl lg:text-5xl xl:text-6xl text-balance" style={{ wordSpacing: '-0.3em' }}>
-          <span className="block mb-2">
-            We build high-level digital products
-          </span>
-          <span className="inline-block bg-gradient-to-r from-brand-green via-brand-green to-brand-blue bg-clip-text text-transparent">
-            on our NextGen low-code platform
-          </span>
+          {headingLines.map((line, i) => {
+            const hasHighlight = line.includes(highlightText);
+            if (hasHighlight) {
+              const [before, after] = line.split(highlightText);
+              return (
+                <span key={i} className="block mt-2">
+                  {before}
+                  <span className="bg-gradient-to-r from-brand-green via-brand-green to-brand-blue bg-clip-text text-transparent">
+                    {highlightText}
+                  </span>
+                  {after}
+                </span>
+              );
+            }
+            return (
+              <span key={i} className="block mb-2">
+                {line}
+              </span>
+            );
+          })}
         </h1>
 
         {/* Subheading */}
