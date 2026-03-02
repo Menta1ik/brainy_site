@@ -50,11 +50,14 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
   const displayIndustries =
     industries && industries.length > 0
       ? industries.map((ind, i) => ({
+          _id: ind._id,
           title: ind.title,
           tag: String(i + 1).padStart(2, "0"),
           description: ind.description ?? "",
         }))
-      : fallbackIndustries;
+      : [];
+
+  if (displayIndustries.length === 0) return null;
 
   return (
     <section
@@ -64,12 +67,12 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
       <Container>
         <SectionHeading
           title="Industries We Serve"
-          subtitle="Delivering specialized solutions across key sectors"
+          subtitle="Delivering specialized solutions across key sectors using our NextGen low-code platform"
         />
 
         <div className="grid gap-px bg-brand-border sm:grid-cols-2 lg:grid-cols-3">
           {displayIndustries.map((industry, i) => (
-            <RevealSection key={industry.title} delay={i * 80}>
+            <RevealSection key={industry._id || i} delay={i * 80}>
               <div className="group h-full bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-border/30">
                 {/* Number tag */}
                 <span className="text-xs font-medium text-gray-700">

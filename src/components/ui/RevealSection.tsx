@@ -17,19 +17,22 @@ export function RevealSection({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Only run on client after hydration
     const el = ref.current;
-    if (!el) return;
+    if (!el || typeof window === "undefined") return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            el.classList.add("is-revealed");
-          }, delay);
-          observer.unobserve(el);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add("is-revealed");
+            }, delay);
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      { threshold: 0.08 }
+      { threshold: 0.1 }
     );
 
     observer.observe(el);

@@ -29,26 +29,48 @@ import { SERVICES, INDUSTRIES } from "@/lib/constants";
 export async function getServices(): Promise<SanityService[]> {
   try {
     const data = await client.fetch<SanityService[]>(SERVICES_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["service"] },
+      next: { revalidate: 0, tags: ["service"] },
     });
-    if (data && data.length > 0) return data;
+    // Only return services that match our new IDs or titles
+    if (data && data.length > 0) {
+      const filtered = data.filter(s => s._id.startsWith("service-") || ["Low-code Development", "Custom Software Development", "IT Consultancy"].includes(s.title));
+      if (filtered.length > 0) return filtered;
+    }
   } catch (e) {
     console.error("Failed to fetch services from Sanity:", e);
   }
-  return SERVICES.map((s, i) => ({
-    _id: `fallback-service-${i}`,
-    title: s.title,
-    slug: { current: s.title.toLowerCase().replace(/\s+/g, "-") },
-    shortDescription: s.description,
-    iconName: s.icon,
-    order: i,
-  }));
+  return [
+    {
+      _id: "service-low-code",
+      title: "Low-code Development",
+      slug: { current: "low-code-development" },
+      shortDescription: "We use our NextGen low-code platform to build complex, production-grade applications across industries. Fast, robust, and extensible.",
+      order: 1,
+      features: ["NextGen Platform", "Visual Modeling", "Custom Logic Integration"]
+    },
+    {
+      _id: "service-custom-software",
+      title: "Custom Software Development",
+      slug: { current: "custom-software-development" },
+      shortDescription: "We complement low-code with custom development where performance, specific integrations or unique user experiences are required.",
+      order: 2,
+      features: ["Performance Optimization", "Legacy Integrations", "Unique UX"]
+    },
+    {
+      _id: "service-consultancy",
+      title: "IT Consultancy",
+      slug: { current: "it-consultancy" },
+      shortDescription: "We help you decide where low-code makes sense and how to modernize your systems step-by-step without disruption.",
+      order: 3,
+      features: ["Architecture Review", "Modernization Roadmap", "Platform Selection"]
+    }
+  ];
 }
 
 export async function getServiceBySlug(slug: string): Promise<SanityService | null> {
   try {
     const data = await client.fetch<SanityService>(SERVICE_BY_SLUG_QUERY, { slug }, {
-      next: { revalidate: 3600, tags: ["service"] },
+      next: { revalidate: 0, tags: ["service"] },
     });
     if (data) return data;
   } catch (e) {
@@ -73,7 +95,7 @@ export async function getServiceBySlug(slug: string): Promise<SanityService | nu
 export async function getFeaturedProjects(): Promise<SanityProject[]> {
   try {
     const data = await client.fetch<SanityProject[]>(FEATURED_PROJECTS_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["project"] },
+      next: { revalidate: 0, tags: ["project"] },
     });
     if (data && data.length > 0) return data;
   } catch (e) {
@@ -196,7 +218,7 @@ export async function getFeaturedProjects(): Promise<SanityProject[]> {
 export async function getProjectBySlug(slug: string): Promise<SanityProject | null> {
   try {
     const data = await client.fetch<SanityProject>(PROJECT_BY_SLUG_QUERY, { slug }, {
-      next: { revalidate: 3600, tags: ["project"] },
+      next: { revalidate: 0, tags: ["project"] },
     });
     if (data) return data;
   } catch (e) {
@@ -321,18 +343,26 @@ export async function getProjectBySlug(slug: string): Promise<SanityProject | nu
 export async function getIndustries(): Promise<SanityIndustry[]> {
   try {
     const data = await client.fetch<SanityIndustry[]>(INDUSTRIES_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["industry"] },
+      next: { revalidate: 0, tags: ["industry"] },
     });
-    if (data && data.length > 0) return data;
+    // Only return industries that match our new IDs
+    if (data && data.length > 0) {
+      const filtered = data.filter(ind => ind._id.startsWith("industry-"));
+      if (filtered.length > 0) return filtered;
+    }
   } catch (e) {
     console.error("Failed to fetch industries from Sanity:", e);
   }
-  return INDUSTRIES.map((ind, i) => ({
-    _id: `fallback-industry-${i}`,
-    title: ind.title,
-    slug: { current: ind.title.toLowerCase().replace(/[&\s]+/g, "-") },
-    iconName: ind.icon,
-  }));
+  return [
+    { _id: "industry-marketplaces", title: "Marketplaces & Online Platforms", slug: { current: "marketplaces" }, description: "B2B and B2C marketplaces, booking and aggregation platforms, multi-vendor catalogues." },
+    { _id: "industry-education", title: "Education & e-Learning", slug: { current: "education" }, description: "Learning management systems, student and teacher portals, admissions and enrollment workflows." },
+    { _id: "industry-legal", title: "Legal & Professional Services", slug: { current: "legal" }, description: "Case and matter management, document automation, client portals, appointments." },
+    { _id: "industry-healthcare", title: "Healthcare & Veterinary", slug: { current: "healthcare" }, description: "Patient and client portals, appointment and treatment management, digital records." },
+    { _id: "industry-government", title: "Government & Municipalities", slug: { current: "government" }, description: "Citizen service portals, permits and applications, complaints and request tracking." },
+    { _id: "industry-retail", title: "Retail & Commerce", slug: { current: "retail" }, description: "Omnichannel customer portals, loyalty programs, in-store and online workflows." },
+    { _id: "industry-fintech", title: "Banking & Fintech", slug: { current: "fintech" }, description: "Digital onboarding and KYC/KYB, lending and credit decisioning, payment flows." },
+    { _id: "industry-telecom", title: "Telecom & Utilities", slug: { current: "telecom" }, description: "Customer and partner portals, service requests and activations, billing workflows." },
+  ];
 }
 
 export async function getHeroSection(
@@ -340,11 +370,22 @@ export async function getHeroSection(
 ): Promise<SanityHeroSection | null> {
   try {
     const data = await client.fetch<SanityHeroSection>(HERO_QUERY, { page }, {
-      next: { revalidate: 3600, tags: ["heroSection"] },
+      next: { revalidate: 0, tags: ["heroSection"] },
     });
     if (data) return data;
   } catch (e) {
     console.error(`Failed to fetch hero for page ${page}:`, e);
+  }
+  if (page === "home") {
+    return {
+      tagline: "LOW-CODE • HIGH-LEVEL DIGITAL PRODUCTS • ACROSS INDUSTRIES",
+      heading: "We build high-level digital products on our NextGen low-code platform",
+      subheading: "BrainySoftware designs and delivers advanced applications on our own NextGen low-code platform — from marketplaces, education and legal solutions to healthcare, veterinary, government, municipal and financial systems.",
+      ctaButtons: [
+        { label: "Our Services", href: "/services", variant: "primary" },
+        { label: "Contact Us", href: "/contacts", variant: "outline" },
+      ]
+    };
   }
   return null;
 }
@@ -352,7 +393,7 @@ export async function getHeroSection(
 export async function getAboutSection(): Promise<SanityAboutSection | null> {
   try {
     const data = await client.fetch<SanityAboutSection>(ABOUT_SECTION_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["aboutSection"] },
+      next: { revalidate: 0, tags: ["aboutSection"] },
     });
     if (data) return data;
   } catch (e) {
@@ -364,7 +405,7 @@ export async function getAboutSection(): Promise<SanityAboutSection | null> {
 export async function getTeamMembers(): Promise<SanityTeamMember[]> {
   try {
     const data = await client.fetch<SanityTeamMember[]>(TEAM_MEMBERS_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["teamMember"] },
+      next: { revalidate: 0, tags: ["teamMember"] },
     });
     if (data && data.length > 0) return data;
   } catch (e) {
@@ -437,7 +478,7 @@ export async function getTeamMembers(): Promise<SanityTeamMember[]> {
 export async function getLogoUrl(): Promise<string | null> {
   try {
     const data = await client.fetch<SanitySiteSettings>(SITE_SETTINGS_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["siteSettings"] },
+      next: { revalidate: 0, tags: ["siteSettings"] },
     });
     if (data?.logo) {
       return urlFor(data.logo).width(200).url();
@@ -466,7 +507,7 @@ const FALLBACK_BLOG_POSTS: SanityBlogPost[] = [
 export async function getBlogPosts(): Promise<SanityBlogPost[]> {
   try {
     const data = await client.fetch<SanityBlogPost[]>(BLOG_POSTS_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["blogPost"] },
+      next: { revalidate: 0, tags: ["blogPost"] },
     });
     if (data && data.length > 0) return data;
   } catch (e) {
@@ -478,7 +519,7 @@ export async function getBlogPosts(): Promise<SanityBlogPost[]> {
 export async function getBlogPostBySlug(slug: string): Promise<SanityBlogPost | null> {
   try {
     const data = await client.fetch<SanityBlogPost>(BLOG_POST_BY_SLUG_QUERY, { slug }, {
-      next: { revalidate: 3600, tags: ["blogPost"] },
+      next: { revalidate: 0, tags: ["blogPost"] },
     });
     if (data) return data;
   } catch (e) {
@@ -495,7 +536,7 @@ export async function getContactInfo(): Promise<{
 } | null> {
   try {
     const data = await client.fetch(CONTACT_INFO_QUERY, {}, {
-      next: { revalidate: 3600, tags: ["contactInfo"] },
+      next: { revalidate: 0, tags: ["contactInfo"] },
     });
     if (data) return data;
   } catch (e) {

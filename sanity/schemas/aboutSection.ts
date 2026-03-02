@@ -14,6 +14,17 @@ export default defineType({
       of: [{ type: "text" }],
     }),
     defineField({
+      name: "bullets",
+      type: "array",
+      title: "Key Points (Bullets)",
+      of: [{ type: "string" }],
+    }),
+    defineField({
+      name: "note",
+      type: "text",
+      title: "Bottom Note (Italicized)",
+    }),
+    defineField({
       name: "stats",
       type: "array",
       title: "Statistics",

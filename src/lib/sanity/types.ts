@@ -58,6 +58,8 @@ export interface SanityAboutSection {
   title: string;
   subtitle?: string;
   paragraphs?: string[];
+  bullets?: string[];
+  note?: string;
   stats?: { value: string; label: string }[];
 }
 

@@ -19,12 +19,13 @@ export function ServicesCards({ services }: ServicesCardsProps) {
   const displayServices =
     services && services.length > 0
       ? services.slice(0, 3).map((s) => ({
+          _id: s._id,
           title: s.title,
           shortDescription: s.shortDescription,
           iconName: s.iconName,
           slug: s.slug,
         }))
-      : fallbackServices;
+      : fallbackServices.map((s, i) => ({ ...s, _id: `fallback-${i}` }));
 
   return (
     <section className="border-y border-brand-border bg-brand-gray py-24 lg:py-32" aria-labelledby="services-heading">
@@ -35,7 +36,7 @@ export function ServicesCards({ services }: ServicesCardsProps) {
         />
         <div className="grid gap-px bg-brand-border md:grid-cols-3">
           {displayServices.map((service, i) => (
-            <RevealSection key={service.title} delay={i * 100}>
+            <RevealSection key={service._id || i} delay={i * 100}>
               <Card
                 title={service.title}
                 description={service.shortDescription}

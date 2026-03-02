@@ -1,6 +1,6 @@
 # BrainySoftware — Corporate Website
 
-Corporate website for [BrainySoftware](https://brainysoft.biz), a custom software development company based in Tallinn, Estonia (est. 2009).
+Corporate website for [BrainySoftware](https://brainysoft.biz), a custom software development company based in Tallinn, Estonia (est. 2022).
 
 ## Tech Stack
 

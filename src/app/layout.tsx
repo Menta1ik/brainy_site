@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -112,7 +113,9 @@ export default async function RootLayout({
       <body className={`${jetbrainsMono.variable} ${jetbrainsMono.className} antialiased`}>
         <JsonLd data={organizationJsonLd} />
         <Header logoUrl={logoUrl} />
-        <main className="min-h-screen pt-[72px]">{children}</main>
+        <Suspense fallback={null}>
+          <main className="min-h-screen pt-[72px]">{children}</main>
+        </Suspense>
         <Footer logoUrl={logoUrl} />
       </body>
     </html>

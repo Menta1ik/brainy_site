@@ -142,6 +142,15 @@ body {
   }
 }
 
+@keyframes scan {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
 /* ── Custom utilities ───────────────────────────────────── */
 @utility animate-float {
   animation: float 6s ease-in-out infinite;
@@ -153,6 +162,10 @@ body {
 
 @utility animate-fade-slide-in {
   animation: fadeSlideIn 0.5s ease-out forwards;
+}
+
+@utility animate-scan {
+  animation: scan 8s linear infinite;
 }
 
 :root {

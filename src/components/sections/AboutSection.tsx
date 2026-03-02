@@ -27,9 +27,11 @@ interface AboutSectionProps {
 
 export function AboutSection({ data }: AboutSectionProps) {
   const title = data?.title ?? "About BrainySoftware";
-  const subtitle = data?.subtitle ?? "Your trusted technology partner since 2009";
+  const subtitle = data?.subtitle ?? "Your trusted technology partner since 2022";
   const paragraphs = data?.paragraphs?.length ? data.paragraphs : defaultParagraphs;
   const statsData = data?.stats?.length ? data.stats : defaultStats;
+  const bullets = data?.bullets?.length ? data.bullets : highlights;
+  const note = data?.note;
 
   return (
     <section className="py-24 lg:py-32 bg-brand-dark" aria-labelledby="about-heading">
@@ -38,24 +40,35 @@ export function AboutSection({ data }: AboutSectionProps) {
           {/* ── Left: copy ── */}
           <RevealSection>
             <SectionHeading title={title} subtitle={subtitle} align="left" />
-            {paragraphs.map((p, i) => (
-              <p
-                key={i}
-                className={`${i > 0 ? "mt-4 " : ""}text-sm leading-relaxed text-gray-500`}
-              >
-                {p}
-              </p>
-            ))}
+            <div className="space-y-4">
+              {paragraphs.map((p, i) => (
+                <p
+                  key={i}
+                  className="text-sm leading-relaxed text-gray-500"
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
 
-            {/* Highlights list */}
-            <ul className="mt-8 space-y-2.5">
-              {highlights.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-xs text-gray-600">
+            {/* Highlights list (Bullets) */}
+            <ul className="mt-8 space-y-3">
+              {bullets.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-xs leading-relaxed text-gray-400">
                   <span className="mt-0.5 shrink-0 text-brand-green">›</span>
                   {item}
                 </li>
               ))}
             </ul>
+
+            {/* NextGen Note */}
+            {note && (
+              <div className="mt-10 border-l border-brand-green/30 pl-6">
+                <p className="text-xs italic leading-relaxed text-gray-500">
+                  {note}
+                </p>
+              </div>
+            )}
           </RevealSection>
 
           {/* ── Right: stats + visual ── */}

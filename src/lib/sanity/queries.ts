@@ -27,7 +27,7 @@ export const INDUSTRIES_QUERY = `*[_type == "industry"] | order(order asc) {
 }`;
 
 export const ABOUT_SECTION_QUERY = `*[_type == "aboutSection"][0] {
-  title, subtitle, paragraphs, stats
+  title, subtitle, paragraphs, bullets, note, stats
 }`;
 
 export const TEAM_MEMBERS_QUERY = `*[_type == "teamMember"] | order(order asc) {

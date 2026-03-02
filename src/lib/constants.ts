@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
     countryCode: "EE",
   },
   workingHours: "Mon - Sat: 10:00 AM - 5:00 PM",
-  foundingYear: 2009,
+  foundingYear: 2022,
   social: {
     linkedin: "https://linkedin.com/company/brainysoft",
     facebook: "https://facebook.com/brainysoft",
