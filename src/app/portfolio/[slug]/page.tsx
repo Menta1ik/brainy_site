@@ -72,7 +72,7 @@ export default async function ProjectPage({ params }: Props) {
                 <h2 className="text-xs font-medium uppercase tracking-wider text-brand-green mb-4">
                   Overview
                 </h2>
-                <p className="text-gray-400 leading-relaxed">{project.description}</p>
+                <p className="text-muted-foreground/80 leading-relaxed">{project.description}</p>
               </div>
 
               {/* Challenge */}
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: Props) {
                   <h2 className="text-xs font-medium uppercase tracking-wider text-brand-green mb-4">
                     Challenge
                   </h2>
-                  <p className="text-gray-400 leading-relaxed">{project.challenge}</p>
+                  <p className="text-muted-foreground/80 leading-relaxed">{project.challenge}</p>
                 </div>
               )}
 
@@ -91,7 +91,7 @@ export default async function ProjectPage({ params }: Props) {
                   <h2 className="text-xs font-medium uppercase tracking-wider text-brand-green mb-4">
                     Solution
                   </h2>
-                  <p className="text-gray-400 leading-relaxed">{project.solution}</p>
+                  <p className="text-muted-foreground/80 leading-relaxed">{project.solution}</p>
                 </div>
               )}
 
@@ -103,7 +103,7 @@ export default async function ProjectPage({ params }: Props) {
                   </h2>
                   <ul className="space-y-3">
                     {project.results.map((result) => (
-                      <li key={result} className="flex items-start gap-3 text-sm text-gray-400">
+                      <li key={result} className="flex items-start gap-3 text-sm text-muted-foreground/80">
                         <svg
                           className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
                           fill="none"
@@ -132,18 +132,18 @@ export default async function ProjectPage({ params }: Props) {
               <div className="border border-brand-border p-6 space-y-5">
                 {project.industry?.title && (
                   <div>
-                    <span className="text-xs uppercase tracking-wider text-gray-600 block mb-1">Industry</span>
+                    <span className="text-xs uppercase tracking-wider text-muted-foreground block mb-1">Industry</span>
                     <span className="text-sm text-white">{project.industry.title}</span>
                   </div>
                 )}
                 {project.technologies && project.technologies.length > 0 && (
                   <div>
-                    <span className="text-xs uppercase tracking-wider text-gray-600 block mb-2">Technologies</span>
+                    <span className="text-xs uppercase tracking-wider text-muted-foreground block mb-2">Technologies</span>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 py-1 text-xs border border-brand-border text-gray-400"
+                          className="px-2 py-1 text-xs border border-brand-border text-muted-foreground/80"
                         >
                           {tech}
                         </span>
@@ -157,7 +157,7 @@ export default async function ProjectPage({ params }: Props) {
               {otherProjects.length > 0 && (
                 <div className="border border-brand-border">
                   <div className="px-6 py-4 border-b border-brand-border">
-                    <span className="text-xs font-medium uppercase tracking-wider text-gray-600">
+                    <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                       Other Projects
                     </span>
                   </div>
@@ -167,7 +167,7 @@ export default async function ProjectPage({ params }: Props) {
                       href={`/portfolio/${p.slug.current}`}
                       className="flex flex-col px-6 py-4 border-b border-brand-border last:border-b-0 hover:bg-brand-gray transition-colors group"
                     >
-                      <span className="text-sm text-gray-400 group-hover:text-white transition-colors">
+                      <span className="text-sm text-muted-foreground/80 group-hover:text-white transition-colors">
                         {p.title}
                       </span>
                       {p.industry?.title && (

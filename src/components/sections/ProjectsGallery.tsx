@@ -111,7 +111,7 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                 className="group relative flex h-full flex-col bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-dark"
               >
                 {/* Number */}
-                <span className="text-xs font-medium text-gray-700">
+                <span className="text-xs font-medium text-muted-foreground">
                   {index + 1 < 10 ? `0${index + 1}` : index + 1}
                 </span>
 
@@ -126,7 +126,7 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                 </p>
 
                 {/* Description */}
-                <p className="mt-3 flex-1 text-xs leading-relaxed text-gray-600">
+                <p className="mt-3 flex-1 text-xs leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
 
@@ -134,7 +134,7 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
                 <div className="mt-6 flex items-center justify-between">
                   <div className="h-px w-8 bg-brand-border transition-[width,background-color] duration-300 group-hover:w-12 group-hover:bg-brand-green" />
                   <svg
-                    className="h-4 w-4 text-gray-700 opacity-0 transition-[opacity,color] duration-300 group-hover:opacity-100 group-hover:text-brand-green"
+                    className="h-4 w-4 text-muted-foreground opacity-0 transition-[opacity,color] duration-300 group-hover:opacity-100 group-hover:text-brand-green"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -156,7 +156,7 @@ export function ProjectsGallery({ projects }: ProjectsGalleryProps) {
         <div className="mt-12 text-center">
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-gray-600 transition-colors hover:text-brand-green"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-brand-green"
           >
             View All Projects
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

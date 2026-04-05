@@ -28,7 +28,7 @@ export function CTASection() {
           Your Business?
         </h2>
 
-        <p className="mx-auto mt-5 max-w-lg text-sm text-gray-500">
+        <p className="mx-auto mt-5 max-w-lg text-sm text-muted-foreground/80">
           Let&apos;s discuss how we can help you achieve your goals with
           innovative software solutions. We typically respond within 24 hours.
         </p>

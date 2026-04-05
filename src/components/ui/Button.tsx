@@ -14,13 +14,13 @@ interface ButtonProps {
 
 const variants = {
   primary:
-    "bg-brand-green text-black hover:bg-brand-green-dark",
+    "bg-brand-green text-foreground hover:bg-brand-green-dark",
   secondary:
-    "bg-brand-blue text-black hover:bg-brand-blue-dark",
+    "bg-brand-blue text-foreground hover:bg-brand-blue-dark",
   outline:
     "border border-brand-border text-gray-300 hover:border-brand-green hover:text-brand-green",
   ghost:
-    "text-gray-400 hover:text-white",
+    "text-muted-foreground/80 hover:text-white",
 };
 
 const sizes = {

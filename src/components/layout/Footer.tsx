@@ -26,14 +26,14 @@ export function Footer({ logoUrl }: FooterProps) {
                 BRAINY<span className="text-brand-green">SOFT</span>
               </span>
             </Link>
-            <p className="mt-4 text-xs leading-relaxed text-gray-600">
+            <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
               Over 15 years helping companies reach their goals with innovative
               software solutions.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-gray-500">
+            <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground/80">
               Navigation
             </h3>
             <ul className="space-y-2.5">
@@ -47,7 +47,7 @@ export function Footer({ logoUrl }: FooterProps) {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-xs text-gray-600 transition-colors hover:text-brand-green"
+                    className="text-xs text-muted-foreground transition-colors hover:text-brand-green"
                   >
                     {link.label}
                   </Link>
@@ -57,7 +57,7 @@ export function Footer({ logoUrl }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-gray-500">
+            <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground/80">
               Services
             </h3>
             <ul className="space-y-2.5">
@@ -65,7 +65,7 @@ export function Footer({ logoUrl }: FooterProps) {
                 <li key={service.title}>
                   <Link
                     href={`/services/${service.title.toLowerCase().replace(/[&]+/g, "").replace(/\s+/g, "-").replace(/-+/g, "-")}`}
-                    className="text-xs text-gray-600 transition-colors hover:text-brand-green"
+                    className="text-xs text-muted-foreground transition-colors hover:text-brand-green"
                   >
                     {service.title}
                   </Link>
@@ -75,10 +75,10 @@ export function Footer({ logoUrl }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-gray-500">
+            <h3 className="mb-4 text-xs font-medium uppercase tracking-wider text-muted-foreground/80">
               Contact
             </h3>
-            <address className="not-italic space-y-2.5 text-xs text-gray-600">
+            <address className="not-italic space-y-2.5 text-xs text-muted-foreground">
               <p>
                 <a
                   href={`mailto:${SITE_CONFIG.email}`}
@@ -104,7 +104,7 @@ export function Footer({ logoUrl }: FooterProps) {
         </div>
 
         <div className="mt-12 border-t border-brand-border pt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-xs text-gray-700">
+          <p className="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} {SITE_CONFIG.name}
           </p>
           <div className="flex gap-6">
@@ -114,7 +114,7 @@ export function Footer({ logoUrl }: FooterProps) {
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs uppercase tracking-wider text-gray-700 transition-colors hover:text-brand-green"
+                className="text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-brand-green"
                 aria-label={name}
               >
                 {name}

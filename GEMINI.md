@@ -23,7 +23,7 @@
 
 ### Step 1 — Explore
 - Прочитать задачу и референс
-- Открыть текущий сайт: browser_navigate url="http://localhost:3000"
+- Открыть текущий сайт: browser_navigate url="http://localhost:3010"
 - Посмотреть homepage.png и public/ для визуального референса
 - Задать ОДИН уточняющий вопрос если нужно, дождаться ответа
 

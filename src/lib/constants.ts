@@ -21,13 +21,20 @@ export const SITE_CONFIG = {
   },
 } as const;
 
-export const NAV_ITEMS = [
+export interface NavItem {
+  label: string;
+  href: string;
+  highlight?: boolean;
+}
+
+export const NAV_ITEMS: NavItem[] = [
   { label: "Services", href: "/services" },
+  { label: "Vibe Engineering", href: "/vibe-engineering", highlight: true },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Our Team", href: "/company/team" },
   { label: "Why Choose Us", href: "/company/why-choose-us" },
   { label: "Contacts", href: "/contacts" },
-] as const;
+];
 
 export const SERVICES = [
   {

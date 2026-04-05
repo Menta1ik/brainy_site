@@ -95,8 +95,8 @@ export function TestimonialsFilter() {
             onClick={() => setActive(industry)}
             className={
               active === industry
-                ? "px-4 py-1.5 text-xs font-medium uppercase tracking-wider bg-brand-green text-black transition-colors"
-                : "px-4 py-1.5 text-xs font-medium uppercase tracking-wider border border-brand-border text-gray-600 hover:border-brand-green hover:text-brand-green transition-colors"
+                ? "px-4 py-1.5 text-xs font-medium uppercase tracking-wider bg-brand-green text-foreground transition-colors"
+                : "px-4 py-1.5 text-xs font-medium uppercase tracking-wider border border-brand-border text-muted-foreground hover:border-brand-green hover:text-brand-green transition-colors"
             }
           >
             {industry}
@@ -119,11 +119,11 @@ export function TestimonialsFilter() {
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
 
-            <p className="text-sm leading-relaxed text-gray-400 flex-1">{t.quote}</p>
+            <p className="text-sm leading-relaxed text-muted-foreground/80 flex-1">{t.quote}</p>
 
             <div className="border-t border-brand-border pt-5">
               <div className="text-sm font-medium text-white">{t.author}</div>
-              <div className="mt-0.5 text-xs text-gray-600">{t.company}</div>
+              <div className="mt-0.5 text-xs text-muted-foreground">{t.company}</div>
               <div className="mt-2 inline-block px-2 py-0.5 text-xs border border-brand-border text-brand-green">
                 {t.industry}
               </div>
@@ -133,7 +133,7 @@ export function TestimonialsFilter() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="py-16 text-center text-sm text-gray-600">
+        <p className="py-16 text-center text-sm text-muted-foreground">
           No testimonials found for this category.
         </p>
       )}

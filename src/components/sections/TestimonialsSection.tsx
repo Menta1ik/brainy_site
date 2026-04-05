@@ -108,13 +108,13 @@ export function TestimonialsSection() {
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                 </svg>
 
-                <p className="text-sm leading-relaxed text-gray-400 flex-1">
+                <p className="text-sm leading-relaxed text-muted-foreground/80 flex-1">
                   {t.quote}
                 </p>
 
                 <div className="border-t border-brand-border pt-5">
                   <div className="text-sm font-medium text-white">{t.author}</div>
-                  <div className="mt-0.5 text-xs text-gray-600">{t.company}</div>
+                  <div className="mt-0.5 text-xs text-muted-foreground">{t.company}</div>
                   <div className="mt-2 inline-block px-2 py-0.5 text-xs border border-brand-border text-brand-green">
                     {t.industry}
                   </div>
@@ -128,7 +128,7 @@ export function TestimonialsSection() {
         <div className="mt-8 text-center">
           <Link
             href="/testimonials"
-            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-gray-600 transition-colors hover:text-brand-green"
+            className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-muted-foreground transition-colors hover:text-brand-green"
           >
             View All Reviews
             <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -139,7 +139,7 @@ export function TestimonialsSection() {
 
         {/* Client logos strip */}
         <div className="mt-16">
-          <p className="mb-8 text-center text-xs uppercase tracking-widest text-gray-700">
+          <p className="mb-8 text-center text-xs uppercase tracking-widest text-muted-foreground">
             Companies we&apos;ve worked with
           </p>
           <div className="grid grid-cols-3 gap-px bg-brand-border border border-brand-border md:grid-cols-6">
@@ -148,7 +148,7 @@ export function TestimonialsSection() {
                 key={name}
                 className="flex items-center justify-center bg-brand-dark px-6 py-6"
               >
-                <span className="text-xs font-medium uppercase tracking-wider text-gray-700">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   {name}
                 </span>
               </div>

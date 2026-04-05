@@ -58,20 +58,20 @@ export default async function ServicesPage() {
 
                 {/* Text */}
                 <div className="flex-1">
-                  <span className="text-xs font-medium text-gray-700">
+                  <span className="text-xs font-medium text-muted-foreground">
                     0{index + 1}
                   </span>
                   <h3 className="mt-1 text-lg font-medium text-white group-hover:text-brand-green transition-colors">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-sm text-gray-500 leading-relaxed">
+                  <p className="mt-2 text-sm text-muted-foreground/80 leading-relaxed">
                     {service.shortDescription}
                   </p>
                 </div>
 
                 {/* Arrow */}
                 <svg
-                  className="hidden lg:block h-5 w-5 shrink-0 text-gray-700 group-hover:text-brand-green transition-colors"
+                  className="hidden lg:block h-5 w-5 shrink-0 text-muted-foreground group-hover:text-brand-green transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -206,7 +206,7 @@ export default function FAQPage() {
                       </summary>
 
                       <div className="px-6 pb-6 border-t border-brand-border pt-6">
-                        <p className="text-sm text-gray-400 leading-relaxed">
+                        <p className="text-sm text-muted-foreground/80 leading-relaxed">
                           {item.answer}
                         </p>
                       </div>
@@ -222,16 +222,16 @@ export default function FAQPage() {
       <section className="py-16 lg:py-20 bg-brand-gray border-y border-brand-border">
         <Container>
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-sm text-gray-500 mb-4">DIDN&apos;T FIND YOUR ANSWER?</p>
+            <p className="text-sm text-muted-foreground/80 mb-4">DIDN&apos;T FIND YOUR ANSWER?</p>
             <h2 className="text-2xl font-medium text-white mb-4">
               Get in touch with our team
             </h2>
-            <p className="text-gray-400 mb-8">
+            <p className="text-muted-foreground/80 mb-8">
               Our experts are ready to answer your questions and discuss your project.
             </p>
             <a
               href="/contacts"
-              className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-colors duration-200 cursor-pointer bg-brand-green text-black hover:bg-brand-green-dark px-8 py-3 text-sm"
+              className="inline-flex items-center justify-center font-medium tracking-wider uppercase transition-colors duration-200 cursor-pointer bg-brand-green text-foreground hover:bg-brand-green-dark px-8 py-3 text-sm"
             >
               Contact Us
             </a>

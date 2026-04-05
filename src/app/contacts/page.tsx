@@ -45,18 +45,18 @@ export default async function ContactsPage() {
               <div className="mt-8 space-y-6">
                 {contactDetails.map((detail) => (
                   <div key={detail.label} className="border-l border-brand-border pl-4">
-                    <p className="text-xs uppercase tracking-wider text-gray-600">
+                    <p className="text-xs uppercase tracking-wider text-muted-foreground">
                       {detail.label}
                     </p>
                     {detail.href ? (
                       <a
                         href={detail.href}
-                        className="mt-1 block text-sm text-gray-400 hover:text-brand-green transition-colors"
+                        className="mt-1 block text-sm text-muted-foreground/80 hover:text-brand-green transition-colors"
                       >
                         {detail.value}
                       </a>
                     ) : (
-                      <p className="mt-1 text-sm text-gray-400">{detail.value}</p>
+                      <p className="mt-1 text-sm text-muted-foreground/80">{detail.value}</p>
                     )}
                   </div>
                 ))}

@@ -31,38 +31,58 @@ export async function getServices(): Promise<SanityService[]> {
     const data = await client.fetch<SanityService[]>(SERVICES_QUERY, {}, {
       next: { revalidate: 0, tags: ["service"] },
     });
-    // Only return services that match our new IDs or titles
-    if (data && data.length > 0) {
-      const filtered = data.filter(s => s._id.startsWith("service-") || ["Low-code Development", "Custom Software Development", "IT Consultancy"].includes(s.title));
-      if (filtered.length > 0) return filtered;
-    }
+    if (data && data.length > 0) return data;
   } catch (e) {
     console.error("Failed to fetch services from Sanity:", e);
   }
   return [
     {
-      _id: "service-low-code",
+      _id: "service-1",
       title: "Low-code Development",
       slug: { current: "low-code-development" },
-      shortDescription: "We use our NextGen low-code platform to build complex, production-grade applications across industries. Fast, robust, and extensible.",
-      order: 1,
-      features: ["NextGen Platform", "Visual Modeling", "Custom Logic Integration"]
+      shortDescription: "Accelerate application delivery with low-code platforms. We reduce development complexity so companies can increase productivity and speed to market.",
+      iconName: "globe",
+      order: 1
     },
     {
-      _id: "service-custom-software",
-      title: "Custom Software Development",
-      slug: { current: "custom-software-development" },
-      shortDescription: "We complement low-code with custom development where performance, specific integrations or unique user experiences are required.",
-      order: 2,
-      features: ["Performance Optimization", "Legacy Integrations", "Unique UX"]
+      _id: "service-2",
+      title: "Custom Software",
+      slug: { current: "custom-software" },
+      shortDescription: "End-to-end development of scalable, enterprise-grade software solutions. From architecture design to deployment and long-term support.",
+      iconName: "smartphone",
+      order: 2
     },
     {
-      _id: "service-consultancy",
+      _id: "service-3",
+      title: "QA & Testing",
+      slug: { current: "qa-testing" },
+      shortDescription: "Comprehensive multi-stage testing, automated test pipelines, and independent software auditing to ensure reliability before every release.",
+      iconName: "check-circle",
+      order: 3
+    },
+    {
+      _id: "service-4",
       title: "IT Consultancy",
       slug: { current: "it-consultancy" },
-      shortDescription: "We help you decide where low-code makes sense and how to modernize your systems step-by-step without disruption.",
-      order: 3,
-      features: ["Architecture Review", "Modernization Roadmap", "Platform Selection"]
+      shortDescription: "Technology strategy, workflow optimization, and digital transformation consulting. We help you modernize infrastructure and consolidate portfolios.",
+      iconName: "lightbulb",
+      order: 4
+    },
+    {
+      _id: "service-5",
+      title: "Product Design",
+      slug: { current: "product-design" },
+      shortDescription: "User-centered UI/UX design backed by research and usability testing. We create intuitive interfaces that drive engagement and conversion.",
+      iconName: "palette",
+      order: 5
+    },
+    {
+      _id: "service-6",
+      title: "Dedicated Teams",
+      slug: { current: "dedicated-teams" },
+      shortDescription: "Build your remote development team tailored to your requirements. Skilled professionals managed and motivated by our proven processes.",
+      iconName: "users",
+      order: 6
     }
   ];
 }

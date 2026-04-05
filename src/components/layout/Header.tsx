@@ -62,8 +62,12 @@ export function Header({ logoUrl }: HeaderProps) {
               <Link
                 href={item.href}
                 className={cn(
-                  "text-xs font-medium uppercase tracking-wider transition-colors hover:text-white",
-                  pathname === item.href || pathname.startsWith(item.href + "/") ? "text-brand-green" : "text-gray-400"
+                  "text-[10px] font-medium uppercase tracking-widest transition-colors duration-300",
+                  item.highlight
+                    ? "border border-brand-green/50 px-3 py-1.5 rounded-full bg-brand-green/5 hover:bg-brand-green/20 hover:border-brand-green text-white shadow-[0_0_15px_rgba(27,249,153,0.1)]"
+                    : pathname === item.href || pathname.startsWith(item.href + "/")
+                    ? "text-brand-green"
+                    : "text-muted-foreground/80 hover:text-white"
                 )}
               >
                 {item.label}
@@ -79,7 +83,7 @@ export function Header({ logoUrl }: HeaderProps) {
 
           <button
             onClick={() => setIsMobileOpen(true)}
-            className="lg:hidden p-2 text-gray-400"
+            className="lg:hidden p-2 text-muted-foreground/80"
             aria-label="Open menu"
           >
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

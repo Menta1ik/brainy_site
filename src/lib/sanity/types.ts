@@ -1,6 +1,5 @@
 // Sanity image source type
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type SanityImageSource = Record<string, any>;
+type SanityImageSource = Record<string, unknown>;
 
 export interface SanityService {
   _id: string;

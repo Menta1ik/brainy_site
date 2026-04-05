@@ -35,7 +35,7 @@ export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
               BRAINY<span className="text-brand-green">SOFT</span>
             </span>
           </div>
-          <button onClick={onClose} className="p-2 text-gray-400" aria-label="Close menu">
+          <button onClick={onClose} className="p-2 text-muted-foreground/80" aria-label="Close menu">
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -50,7 +50,7 @@ export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
                   onClick={onClose}
                   className={cn(
                     "block py-4 text-sm uppercase tracking-wider hover:text-brand-green",
-                    pathname === item.href || pathname.startsWith(item.href + "/") ? "text-brand-green" : "text-gray-400"
+                    pathname === item.href || pathname.startsWith(item.href + "/") ? "text-brand-green" : "text-muted-foreground/80"
                   )}
                 >
                   {item.label}
@@ -59,7 +59,7 @@ export function MobileMenu({ isOpen, onClose, logoUrl }: MobileMenuProps) {
           ))}
         </nav>
 
-        <div className="mt-8 px-6 space-y-3 text-xs text-gray-600">
+        <div className="mt-8 px-6 space-y-3 text-xs text-muted-foreground">
           <a href={`mailto:${SITE_CONFIG.email}`} className="block hover:text-brand-green">
             {SITE_CONFIG.email}
           </a>

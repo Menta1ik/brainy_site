@@ -31,7 +31,7 @@ export function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 max-w-xl text-sm text-gray-500 mx-auto">
+        <p className="mt-4 max-w-xl text-sm text-muted-foreground/80 mx-auto">
           {subtitle}
         </p>
       )}

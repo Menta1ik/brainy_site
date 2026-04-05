@@ -111,7 +111,7 @@ export default function HowWeWorkPage() {
                   <span className="text-4xl font-bold text-brand-green/20">
                     {step.number}
                   </span>
-                  <span className="text-xs uppercase tracking-wider text-gray-600">
+                  <span className="text-xs uppercase tracking-wider text-muted-foreground">
                     {step.duration}
                   </span>
                 </div>
@@ -120,7 +120,7 @@ export default function HowWeWorkPage() {
                   {step.title}
                 </h3>
 
-                <p className="text-sm text-gray-400 mb-6">
+                <p className="text-sm text-muted-foreground/80 mb-6">
                   {step.description}
                 </p>
 
@@ -132,7 +132,7 @@ export default function HowWeWorkPage() {
                     {step.activities.map((activity) => (
                       <li
                         key={activity}
-                        className="text-xs text-gray-500 flex items-start gap-2"
+                        className="text-xs text-muted-foreground/80 flex items-start gap-2"
                       >
                         <span className="text-brand-green mt-1">•</span>
                         <span>{activity}</span>
@@ -153,7 +153,7 @@ export default function HowWeWorkPage() {
               <h2 className="text-2xl font-medium text-white mb-4">
                 Why Our Process Works
               </h2>
-              <p className="text-gray-400">
+              <p className="text-muted-foreground/80">
                 We&apos;ve refined our development process over 15+ years working with
                 enterprises across fintech, banking, telecom, healthcare, and insurance.
                 Our methodology ensures quality, transparency, and on-time delivery.
@@ -165,7 +165,7 @@ export default function HowWeWorkPage() {
                 <h3 className="text-lg font-medium text-white mb-3">
                   Agile & Iterative
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground/80">
                   We work in 2-week sprints with regular demos and feedback loops.
                   This allows us to adapt to changes and deliver incremental value.
                 </p>
@@ -175,7 +175,7 @@ export default function HowWeWorkPage() {
                 <h3 className="text-lg font-medium text-white mb-3">
                   Transparent Communication
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground/80">
                   Daily standups, weekly updates, and regular stakeholder meetings
                   keep everyone aligned and informed throughout the project.
                 </p>
@@ -185,7 +185,7 @@ export default function HowWeWorkPage() {
                 <h3 className="text-lg font-medium text-white mb-3">
                   Quality First
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-muted-foreground/80">
                   Code reviews, automated testing, and continuous integration ensure
                   high quality from day one. We measure and track quality metrics.
                 </p>

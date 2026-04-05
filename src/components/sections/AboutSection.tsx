@@ -44,7 +44,7 @@ export function AboutSection({ data }: AboutSectionProps) {
               {paragraphs.map((p, i) => (
                 <p
                   key={i}
-                  className="text-sm leading-relaxed text-gray-500"
+                  className="text-sm leading-relaxed text-muted-foreground/80"
                 >
                   {p}
                 </p>
@@ -54,7 +54,7 @@ export function AboutSection({ data }: AboutSectionProps) {
             {/* Highlights list (Bullets) */}
             <ul className="mt-8 space-y-3">
               {bullets.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-xs leading-relaxed text-gray-400">
+                <li key={item} className="flex items-start gap-3 text-xs leading-relaxed text-muted-foreground/80">
                   <span className="mt-0.5 shrink-0 text-brand-green">›</span>
                   {item}
                 </li>
@@ -64,7 +64,7 @@ export function AboutSection({ data }: AboutSectionProps) {
             {/* NextGen Note */}
             {note && (
               <div className="mt-10 border-l border-brand-green/30 pl-6">
-                <p className="text-xs italic leading-relaxed text-gray-500">
+                <p className="text-xs italic leading-relaxed text-muted-foreground/80">
                   {note}
                 </p>
               </div>
@@ -80,7 +80,7 @@ export function AboutSection({ data }: AboutSectionProps) {
                   <div className="text-3xl font-medium text-brand-green">
                     {stat.value}
                   </div>
-                  <div className="mt-2 text-xs uppercase tracking-wider text-gray-600">
+                  <div className="mt-2 text-xs uppercase tracking-wider text-muted-foreground">
                     {stat.label}
                   </div>
                 </div>
@@ -99,11 +99,11 @@ export function AboutSection({ data }: AboutSectionProps) {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider text-gray-500">
+                  <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/80">
                     Headquartered in
                   </p>
                   <p className="mt-0.5 text-sm text-white">Tallinn, Estonia 🇪🇪</p>
-                  <p className="mt-1 text-xs text-gray-600">
+                  <p className="mt-1 text-xs text-muted-foreground">
                     Part of the EU — fully compliant with GDPR and EU regulations
                   </p>
                 </div>

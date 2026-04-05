@@ -70,7 +70,7 @@ export default async function ServicePage({ params }: Props) {
                   {getServiceIcon(service.iconName ?? "", "h-8 w-8")}
                 </div>
                 <div>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="text-muted-foreground/80 leading-relaxed">
                     {service.shortDescription}
                   </p>
                 </div>
@@ -83,7 +83,7 @@ export default async function ServicePage({ params }: Props) {
                   </h2>
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3 text-sm text-gray-400">
+                      <li key={feature} className="flex items-start gap-3 text-sm text-muted-foreground/80">
                         <svg
                           className="mt-0.5 h-4 w-4 shrink-0 text-brand-green"
                           fill="none"
@@ -114,7 +114,7 @@ export default async function ServicePage({ params }: Props) {
             {/* Right: other services */}
             <div className="space-y-px border border-brand-border">
               <div className="px-6 py-4 border-b border-brand-border">
-                <span className="text-xs font-medium uppercase tracking-wider text-gray-600">
+                <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
                   Other Services
                 </span>
               </div>
@@ -122,7 +122,7 @@ export default async function ServicePage({ params }: Props) {
                 <Link
                   key={s._id}
                   href={`/services/${s.slug.current}`}
-                  className="flex items-center gap-4 px-6 py-4 text-sm text-gray-500 hover:text-white hover:bg-brand-gray transition-colors border-b border-brand-border last:border-b-0"
+                  className="flex items-center gap-4 px-6 py-4 text-sm text-muted-foreground/80 hover:text-white hover:bg-brand-gray transition-colors border-b border-brand-border last:border-b-0"
                 >
                   <span className="shrink-0 text-brand-green">
                     {getServiceIcon(s.iconName ?? "", "h-4 w-4")}

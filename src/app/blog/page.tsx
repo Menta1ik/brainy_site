@@ -59,15 +59,15 @@ export default async function BlogPage() {
                     {post.title}
                   </h3>
 
-                  <p className="text-sm text-gray-500 mb-6 flex-1 line-clamp-3">
+                  <p className="text-sm text-muted-foreground/80 mb-6 flex-1 line-clamp-3">
                     {post.excerpt}
                   </p>
 
                   <div className="flex items-center justify-between pt-6 border-t border-brand-border">
-                    <span className="text-xs text-gray-600">
+                    <span className="text-xs text-muted-foreground">
                       {post.readingTime} min read
                     </span>
-                    <span className="text-xs text-gray-600">
+                    <span className="text-xs text-muted-foreground">
                       {formatDate(post.publishedAt)}
                     </span>
                   </div>
@@ -88,13 +88,13 @@ export default async function BlogPage() {
 
           {/* Categories */}
           <div className="mb-12 flex flex-wrap gap-3">
-            <span className="px-4 py-2 text-sm font-medium bg-brand-green text-black">
+            <span className="px-4 py-2 text-sm font-medium bg-brand-green text-foreground">
               All
             </span>
             {categories.map((category) => (
               <span
                 key={category}
-                className="px-4 py-2 text-sm font-medium border border-brand-border text-gray-400"
+                className="px-4 py-2 text-sm font-medium border border-brand-border text-muted-foreground/80"
               >
                 {category}
               </span>
@@ -114,8 +114,8 @@ export default async function BlogPage() {
                     <span className="text-xs uppercase tracking-wider font-medium text-brand-green">
                       {post.category}
                     </span>
-                    <span className="text-xs text-gray-600">•</span>
-                    <span className="text-xs text-gray-600">
+                    <span className="text-xs text-muted-foreground">•</span>
+                    <span className="text-xs text-muted-foreground">
                       {post.readingTime} min read
                     </span>
                   </div>
@@ -124,12 +124,12 @@ export default async function BlogPage() {
                     {post.title}
                   </h3>
 
-                  <p className="text-sm text-gray-500 max-w-2xl">
+                  <p className="text-sm text-muted-foreground/80 max-w-2xl">
                     {post.excerpt}
                   </p>
                 </div>
 
-                <span className="text-xs text-gray-600 shrink-0 ml-4">
+                <span className="text-xs text-muted-foreground shrink-0 ml-4">
                   {formatDate(post.publishedAt)}
                 </span>
               </Link>

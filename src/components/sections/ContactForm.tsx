@@ -63,7 +63,7 @@ export function ContactForm() {
         <h3 className="text-lg font-medium text-white">
           Thank you
         </h3>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-muted-foreground/80">
           We&apos;ll get back to you within 24 hours.
         </p>
       </div>

@@ -81,7 +81,7 @@ export function HeroSection({ data }: HeroSectionProps) {
         </h1>
 
         {/* Subheading */}
-        <p className="mt-10 mx-auto max-w-[1600px] text-base lg:text-[18px] leading-relaxed text-gray-400 font-light tracking-tight" style={{ wordSpacing: '-0.02em' }}>
+        <p className="mt-10 mx-auto max-w-[1600px] text-base lg:text-[18px] leading-relaxed text-muted-foreground/80 font-light tracking-tight" style={{ wordSpacing: '-0.02em' }}>
           {subheading}
         </p>
 
@@ -104,7 +104,7 @@ export function HeroSection({ data }: HeroSectionProps) {
         <div className="mt-24 flex flex-col items-center gap-6">
           <div className="h-px w-full max-w-xs bg-gradient-to-r from-transparent via-brand-border to-transparent" />
           <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-4">
-            <span className="text-[10px] uppercase tracking-widest text-gray-500">Expertise in:</span>
+            <span className="text-[10px] uppercase tracking-widest text-muted-foreground/80">Expertise in:</span>
             {[
               "Marketplaces",
               "Education",
@@ -115,7 +115,7 @@ export function HeroSection({ data }: HeroSectionProps) {
             ].map((sector) => (
               <span
                 key={sector}
-                className="text-[10px] uppercase tracking-[0.2em] text-gray-400 hover:text-brand-green transition-colors cursor-default"
+                className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground/80 hover:text-brand-green transition-colors cursor-default"
               >
                 {sector}
               </span>

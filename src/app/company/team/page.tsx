@@ -65,7 +65,7 @@ export default async function TeamPage() {
                 {/* Header */}
                 <div className="border-b border-brand-border bg-brand-gray p-8">
                   <div className="flex items-center gap-6">
-                    <div className="flex h-20 w-20 shrink-0 items-center justify-center border border-brand-border text-gray-600">
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center border border-brand-border text-muted-foreground">
                       <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                       </svg>
@@ -82,7 +82,7 @@ export default async function TeamPage() {
                   {member.specializations.length > 0 && (
                     <div className="flex flex-wrap gap-2">
                       {member.specializations.map((tag) => (
-                        <span key={tag} className="border border-brand-border px-3 py-1 text-xs text-gray-500">
+                        <span key={tag} className="border border-brand-border px-3 py-1 text-xs text-muted-foreground/80">
                           {tag}
                         </span>
                       ))}
@@ -90,14 +90,14 @@ export default async function TeamPage() {
                   )}
 
                   {member.shortBio.map((paragraph, i) => (
-                    <p key={i} className="text-sm leading-relaxed text-gray-500">
+                    <p key={i} className="text-sm leading-relaxed text-muted-foreground/80">
                       {paragraph}
                     </p>
                   ))}
 
                   {member.email && (
                     <div className="border-t border-brand-border pt-6">
-                      <a href={`mailto:${member.email}`} className="text-xs text-gray-600 hover:text-brand-green transition-colors">
+                      <a href={`mailto:${member.email}`} className="text-xs text-muted-foreground hover:text-brand-green transition-colors">
                         {member.email}
                       </a>
                     </div>

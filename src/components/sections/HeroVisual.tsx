@@ -63,10 +63,10 @@ export function HeroVisual() {
           className="absolute left-[15%] top-[15%] w-44 h-44 [transform:translateZ(50px)]"
         >
           <div className="h-full w-full bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-6 shadow-2xl flex flex-col items-center justify-center group/plate hover:border-brand-green/50 transition-colors duration-500">
-            <svg className="w-12 h-12 mb-4 text-gray-500 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-12 h-12 mb-4 text-muted-foreground/80 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" />
             </svg>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover/plate:text-white">Database</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 group-hover/plate:text-white">Database</span>
             <div className="mt-4 flex gap-1 w-full justify-center">
               <div className="h-1 w-8 bg-brand-green/20 rounded-full" />
               <div className="h-1 w-4 bg-brand-green/40 rounded-full" />
@@ -79,10 +79,10 @@ export function HeroVisual() {
           className="absolute right-[15%] top-[15%] w-44 h-44 [transform:translateZ(80px)]"
         >
           <div className="h-full w-full bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-6 shadow-2xl flex flex-col items-center justify-center group/plate hover:border-brand-green/50 transition-colors duration-500">
-            <svg className="w-12 h-12 mb-4 text-gray-500 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-12 h-12 mb-4 text-muted-foreground/80 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M9.75 17L9 21h6l-.75-4M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover/plate:text-white">Form UI</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 group-hover/plate:text-white">Form UI</span>
             <div className="mt-4 w-full h-2 bg-white/5 rounded-md overflow-hidden">
               <div className="h-full w-2/3 bg-brand-green/30 animate-[shimmer_2s_infinite]" />
             </div>
@@ -94,10 +94,10 @@ export function HeroVisual() {
           className="absolute left-[15%] bottom-[15%] w-44 h-44 [transform:translateZ(60px)]"
         >
           <div className="h-full w-full bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-6 shadow-2xl flex flex-col items-center justify-center group/plate hover:border-brand-green/50 transition-colors duration-500">
-            <svg className="w-12 h-12 mb-4 text-gray-500 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-12 h-12 mb-4 text-muted-foreground/80 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover/plate:text-white">REST / API</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 group-hover/plate:text-white">REST / API</span>
             <div className="mt-4 text-[10px] font-mono text-brand-green/60">CONNECTED</div>
           </div>
         </div>
@@ -107,10 +107,10 @@ export function HeroVisual() {
           className="absolute right-[15%] bottom-[15%] w-44 h-44 [transform:translateZ(40px)]"
         >
           <div className="h-full w-full bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-6 shadow-2xl flex flex-col items-center justify-center group/plate hover:border-brand-green/50 transition-colors duration-500">
-            <svg className="w-12 h-12 mb-4 text-gray-500 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-12 h-12 mb-4 text-muted-foreground/80 group-hover/plate:text-brand-green transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
             </svg>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-400 group-hover/plate:text-white">Deploy</span>
+            <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground/80 group-hover/plate:text-white">Deploy</span>
             <div className="mt-4 flex items-center gap-2">
               <div className="h-2 w-2 rounded-full bg-brand-green animate-pulse" />
               <div className="h-1 w-12 bg-white/10 rounded-full" />
@@ -135,7 +135,7 @@ export function HeroVisual() {
             <span className="text-4xl font-black text-brand-green tracking-tighter">5x</span>
             <div className="h-10 w-px bg-brand-border" />
             <div className="text-sm font-medium leading-tight text-gray-300">
-              Low-code Development<br/><span className="text-gray-500 uppercase text-[10px] tracking-widest">Speed & Efficiency</span>
+              Low-code Development<br/><span className="text-muted-foreground/80 uppercase text-[10px] tracking-widest">Speed & Efficiency</span>
             </div>
           </div>
         </div>

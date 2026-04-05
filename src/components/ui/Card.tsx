@@ -23,7 +23,7 @@ export function Card({ title, description, icon, href, className }: CardProps) {
         </div>
       )}
       <h3 className="mb-3 text-lg font-medium tracking-wide text-white">{title}</h3>
-      <p className="text-sm leading-relaxed text-gray-500">{description}</p>
+      <p className="text-sm leading-relaxed text-muted-foreground/80">{description}</p>
     </div>
   );
 

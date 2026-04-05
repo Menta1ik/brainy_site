@@ -75,7 +75,7 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
             <RevealSection key={industry._id || i} delay={i * 80}>
               <div className="group h-full bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-border/30">
                 {/* Number tag */}
-                <span className="text-xs font-medium text-gray-700">
+                <span className="text-xs font-medium text-muted-foreground">
                   {industry.tag}
                 </span>
 
@@ -86,7 +86,7 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
                   </h3>
                   {/* Arrow indicator */}
                   <svg
-                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gray-700 opacity-0 transition-[opacity,color] duration-300 group-hover:opacity-100 group-hover:text-brand-green"
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-muted-foreground opacity-0 transition-[opacity,color] duration-300 group-hover:opacity-100 group-hover:text-brand-green"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -100,7 +100,7 @@ export function IndustriesSection({ industries }: IndustriesSectionProps) {
                   </svg>
                 </div>
 
-                <p className="mt-3 text-xs leading-relaxed text-gray-600">
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
                   {industry.description}
                 </p>
 

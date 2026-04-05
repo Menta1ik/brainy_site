@@ -13,7 +13,7 @@ export function ClientsSection() {
   return (
     <section className="border-y border-brand-border bg-brand-gray py-12">
       <Container>
-        <p className="mb-8 text-center text-xs uppercase tracking-[0.25em] text-gray-700">
+        <p className="mb-8 text-center text-xs uppercase tracking-[0.25em] text-muted-foreground">
           Trusted by enterprises across Europe
         </p>
         <div className="grid grid-cols-3 gap-px bg-brand-border border border-brand-border md:grid-cols-6">
@@ -22,10 +22,10 @@ export function ClientsSection() {
               key={client.name}
               className="group flex flex-col items-center justify-center gap-1 bg-brand-dark px-6 py-6 transition-colors duration-300 hover:bg-brand-border/40"
             >
-              <span className="text-xs font-medium uppercase tracking-wider text-gray-700 transition-colors group-hover:text-gray-400">
+              <span className="text-xs font-medium uppercase tracking-wider text-muted-foreground transition-colors group-hover:text-muted-foreground/80">
                 {client.name}
               </span>
-              <span className="text-[10px] uppercase tracking-wider text-gray-800 transition-colors group-hover:text-brand-green/60">
+              <span className="text-[10px] uppercase tracking-wider text-foreground transition-colors group-hover:text-brand-green/60">
                 {client.sector}
               </span>
             </div>

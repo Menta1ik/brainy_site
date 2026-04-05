@@ -31,7 +31,7 @@ export default async function PortfolioPage() {
                 href={`/portfolio/${project.slug.current}`}
                 className="group relative bg-brand-gray p-8 transition-colors duration-300 hover:bg-brand-border/50"
               >
-                <span className="text-xs text-gray-700 font-medium">
+                <span className="text-xs text-muted-foreground font-medium">
                   0{index + 1}
                 </span>
                 <h2 className="mt-4 text-base font-medium text-white group-hover:text-brand-green transition-colors">
@@ -42,7 +42,7 @@ export default async function PortfolioPage() {
                     {project.industry.title}
                   </p>
                 )}
-                <p className="mt-3 text-xs leading-relaxed text-gray-600">
+                <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
                 {project.technologies && project.technologies.length > 0 && (
@@ -50,7 +50,7 @@ export default async function PortfolioPage() {
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 text-xs border border-brand-border text-gray-700"
+                        className="px-2 py-0.5 text-xs border border-brand-border text-muted-foreground"
                       >
                         {tech}
                       </span>
